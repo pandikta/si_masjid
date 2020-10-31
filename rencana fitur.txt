@@ -1,0 +1,7 @@
+Rencana Fitur Yang akan dibuat
+1. Kas Masjid (lazis)
+2. Data Ustad & Jemaah
+3. Daftar Kegiatan (Pengajian, Jadwal TPA, Jadwal Khutbah Jumat DLL)
+4. Pengajuan Kegiatan 
+5. Perhitungan Hewan Qurban (Simulasi, Prediksi)
+6. Pengarsipan (Kas Masjid)

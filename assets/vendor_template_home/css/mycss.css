@@ -1,0 +1,25 @@
+.scrollTop {
+	position: fixed;
+	width: 50px;
+	height: 50px;
+	background: #042e4f;
+	bottom: 800px;
+	right: 50px;
+
+	border-radius: 35%;
+	text-decoration: none;
+	text-align: center;
+	line-height: 50px;
+	color: white;
+	font-size: 22px;
+	z-index: 10000;
+	visibility: hidden;
+	opacity: 0;
+	cursor: pointer;
+	transition: 0.7s;
+}
+.scrollTop.active {
+	bottom: 40px;
+	visibility: visible;
+	opacity: 1;
+}
