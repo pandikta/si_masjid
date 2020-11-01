@@ -197,6 +197,13 @@ class Jamaah extends CI_Controller
         }
     }
 
+    public function delete_pengurus($id)
+    {
+        $this->Jamaah_model->deletepengurus($id);
+        $this->session->set_flashdata('message', 'Di Hapus');
+        redirect('admin/jamaah/pengurus');
+    }
+
     public function muazin()
     {
         $data['user'] = $this->db->get_where('tb_pengguna', ['username' => $this->session->userdata('username')])->row_array();
@@ -252,5 +259,12 @@ class Jamaah extends CI_Controller
             $this->session->set_flashdata('message', 'Di Edit');
             redirect('admin/jamaah/muazin');
         }
+    }
+
+    public function delete_muazin($id)
+    {
+        $this->Jamaah_model->deleteMuazin($id);
+        $this->session->set_flashdata('message', 'Di Hapus');
+        redirect('admin/jamaah/muazin');
     }
 }
