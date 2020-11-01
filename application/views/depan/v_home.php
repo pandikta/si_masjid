@@ -50,7 +50,7 @@
                     <div class="col-md-6 d-flex justify-content-center counter-wrap ftco-animate">
                         <div class="block-18">
                             <div class="text">
-                                <strong class="number" data-number="1">0</strong>
+                                <strong class="number" data-number="<?= $this->db->count_all('tb_muazin') ?>">0</strong>
                                 <span>Jumlah Muazin</span>
                             </div>
                         </div>
@@ -66,7 +66,7 @@
                     <div class="col-md-6 d-flex justify-content-center counter-wrap ftco-animate">
                         <div class="block-18">
                             <div class="text">
-                                <strong class="number" data-number="40">0</strong>
+                                <strong class="number" data-number="<?= $this->db->count_all('tb_remajamasjid') ?>">0</strong>
                                 <span>Remaja Masjid</span>
                             </div>
                         </div>
