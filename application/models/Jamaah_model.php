@@ -171,4 +171,21 @@ class Jamaah_model extends CI_model
 
         $this->db->insert('tb_remajamasjid', $data);
     }
+
+    public function getRemajaById($id)
+    {
+        return $this->db->get_where('tb_remajamasjid', ['id' => $id])->row_array();
+    }
+
+    public function edit_remaja($id)
+    {
+        $data = array(
+            'nama' => $this->input->post('nama', true),
+            'alamat' => $this->input->post('alamat', true),
+            'no_hp' => $this->input->post('no_hp')
+        );
+
+        $this->db->where('id', $id);
+        $this->db->update('tb_remajamasjid', $data);
+    }
 }

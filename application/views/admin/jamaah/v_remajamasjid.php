@@ -69,10 +69,10 @@
                                                 <td><?= $ti['no_hp']; ?></td>
                                                 <td>
                                                     <div class="form-button-action">
-                                                        <a href="<?= base_url('admin/jamaah/edit_remaja/') . $ti['id']; ?>" data-toggle="tooltip" class="btn btn-link btn-primary btn-lg" data-original-title="Edit Data">
+                                                        <a href="<?= base_url('admin/jamaah/edit_remajamasjid/') . $ti['id']; ?>" data-toggle="tooltip" class="btn btn-link btn-primary btn-lg" data-original-title="Edit Data">
                                                             <i class="fa fa-edit"></i>
                                                         </a>
-                                                        <a href="<?= base_url('admin/jamaah/delete_remaja/') . $ti['id']; ?>" data-toggle="tooltip" class="btn btn-link btn-danger tombol-hapus" data-original-title="Hapus">
+                                                        <a href="<?= base_url('admin/jamaah/delete_remajamasjid/') . $ti['id']; ?>" data-toggle="tooltip" class="btn btn-link btn-danger tombol-hapus" data-original-title="Hapus">
                                                             <i class="fa fa-times"></i>
                                                         </a>
 
