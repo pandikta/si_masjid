@@ -196,4 +196,16 @@ class Jamaah extends CI_Controller
             redirect('admin/jamaah/pengurus');
         }
     }
+
+    public function muazin()
+    {
+        $data['user'] = $this->db->get_where('tb_pengguna', ['username' => $this->session->userdata('username')])->row_array();
+        $data['tampilmuazin'] = $this->Jamaah_model->getALlMuazin();
+
+        $this->load->view('templates/admin_header');
+        $this->load->view('templates/admin_topbar');
+        $this->load->view('templates/admin_sidebar', $data);
+        $this->load->view('admin/jamaah/v_muazin', $data);
+        $this->load->view('templates/admin_footer');
+    }
 }

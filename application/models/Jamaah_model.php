@@ -117,4 +117,9 @@ class Jamaah_model extends CI_model
     {
         $this->db->delete('tb_pengurus', ['id' => $id]);
     }
+
+    public function getAllMuazin()
+    {
+        return $this->db->get('tb_muazin')->result_array();
+    }
 }

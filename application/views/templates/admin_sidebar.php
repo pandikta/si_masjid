@@ -82,7 +82,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="#">
+                                <a href="<?= base_url('admin/jamaah/muazin') ?>">
                                     <span class="sub-item">Muazin</span>
                                 </a>
                             </li>
