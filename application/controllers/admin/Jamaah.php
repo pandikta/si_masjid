@@ -208,4 +208,26 @@ class Jamaah extends CI_Controller
         $this->load->view('admin/jamaah/v_muazin', $data);
         $this->load->view('templates/admin_footer');
     }
+
+    public function tambah_muazin()
+    {
+        $data['user'] = $this->db->get_where('tb_pengguna', ['username' => $this->session->userdata('username')])->row_array();
+        $this->form_validation->set_rules('nama', 'Nama', 'trim|required');
+        $this->form_validation->set_rules('alamat', 'Alamat', 'trim|required');
+        $this->form_validation->set_rules('no_hp', 'No handphone', 'trim|required|max_length[15]');
+
+        if ($this->form_validation->run() == false) {
+
+            $this->load->view('templates/admin_header');
+            $this->load->view('templates/admin_topbar');
+            $this->load->view('templates/admin_sidebar', $data);
+            $this->load->view('admin/jamaah/v_addmuazin');
+            $this->load->view('templates/admin_footer');
+        } else {
+
+            $this->Jamaah_model->addMuazin();
+            $this->session->set_flashdata('message', 'Ditambahkan');
+            redirect('admin/jamaah/muazin');
+        }
+    }
 }

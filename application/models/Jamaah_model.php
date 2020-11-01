@@ -122,4 +122,19 @@ class Jamaah_model extends CI_model
     {
         return $this->db->get('tb_muazin')->result_array();
     }
+    public function getMuazinById($id)
+    {
+        return $this->db->get_where('tb_muazin', ['id' => $id])->row_array();
+    }
+
+    public function addMuazin()
+    {
+        $data = [
+            'nama' => $this->input->post('nama', true),
+            'alamat' => $this->input->post('alamat', true),
+            'no_hp' => $this->input->post('no_hp')
+        ];
+
+        $this->db->insert('tb_muazin', $data);
+    }
 }
