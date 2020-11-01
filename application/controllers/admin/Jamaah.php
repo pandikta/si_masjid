@@ -230,4 +230,27 @@ class Jamaah extends CI_Controller
             redirect('admin/jamaah/muazin');
         }
     }
+
+    public function edit_muazin($id)
+    {
+        $data['user'] = $this->db->get_where('tb_pengguna', ['username' => $this->session->userdata('username')])->row_array();
+        $data['tampilmuazin'] = $this->Jamaah_model->getMuazinById($id);
+
+        $this->form_validation->set_rules('nama', 'Nama', 'trim|required');
+        $this->form_validation->set_rules('alamat', 'Alamat', 'trim|required');
+        $this->form_validation->set_rules('no_hp', 'No handphone', 'trim|required|max_length[15]');
+
+        if ($this->form_validation->run() == false) {
+
+            $this->load->view('templates/admin_header');
+            $this->load->view('templates/admin_topbar');
+            $this->load->view('templates/admin_sidebar', $data);
+            $this->load->view('admin/jamaah/v_editmuazin', $data);
+            $this->load->view('templates/admin_footer');
+        } else {
+            $this->Jamaah_model->editMuazin($id);
+            $this->session->set_flashdata('message', 'Di Edit');
+            redirect('admin/jamaah/muazin');
+        }
+    }
 }

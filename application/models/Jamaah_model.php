@@ -101,6 +101,7 @@ class Jamaah_model extends CI_model
     {
         return $this->db->get_where('tb_pengurus', ['id' => $id])->row_array();
     }
+
     public function editpengurus($id)
     {
         $data = array(
@@ -136,5 +137,17 @@ class Jamaah_model extends CI_model
         ];
 
         $this->db->insert('tb_muazin', $data);
+    }
+
+    public function editMuazin($id)
+    {
+        $data = array(
+            'nama' => $this->input->post('nama', true),
+            'alamat' => $this->input->post('alamat', true),
+            'no_hp' => $this->input->post('no_hp')
+        );
+
+        $this->db->where('id', $id);
+        $this->db->update('tb_muazin', $data);
     }
 }
