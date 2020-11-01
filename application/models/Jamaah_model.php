@@ -188,4 +188,9 @@ class Jamaah_model extends CI_model
         $this->db->where('id', $id);
         $this->db->update('tb_remajamasjid', $data);
     }
+
+    public function deleteRemaja($id)
+    {
+        $this->db->delete('tb_remajamasjid', ['id' => $id]);
+    }
 }

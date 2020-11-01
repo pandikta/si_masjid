@@ -324,4 +324,11 @@ class Jamaah extends CI_Controller
             redirect('admin/jamaah/remajamasjid');
         }
     }
+
+    public function delete_remajamasjid($id)
+    {
+        $this->Jamaah_model->deleteRemaja($id);
+        $this->session->set_flashdata('message', 'Di Hapus');
+        redirect('admin/jamaah/remajamasjid');
+    }
 }
