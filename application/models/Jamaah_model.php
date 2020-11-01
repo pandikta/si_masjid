@@ -155,4 +155,9 @@ class Jamaah_model extends CI_model
     {
         $this->db->delete('tb_muazin', ['id' => $id]);
     }
+
+    public function getAllRemajaMasjid()
+    {
+        return $this->db->get('tb_remajamasjid')->result_array();
+    }
 }

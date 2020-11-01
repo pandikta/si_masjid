@@ -267,4 +267,16 @@ class Jamaah extends CI_Controller
         $this->session->set_flashdata('message', 'Di Hapus');
         redirect('admin/jamaah/muazin');
     }
+
+    public function RemajaMasjid()
+    {
+        $data['user'] = $this->db->get_where('tb_pengguna', ['username' => $this->session->userdata('username')])->row_array();
+        $data['tampilremaja'] = $this->Jamaah_model->getAllRemajaMasjid();
+
+        $this->load->view('templates/admin_header');
+        $this->load->view('templates/admin_topbar');
+        $this->load->view('templates/admin_sidebar', $data);
+        $this->load->view('admin/jamaah/v_remajamasjid', $data);
+        $this->load->view('templates/admin_footer');
+    }
 }

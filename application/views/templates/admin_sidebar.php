@@ -87,7 +87,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="#">
+                                <a href="<?= base_url('admin/jamaah/remajamasjid') ?>">
                                     <span class="sub-item">Remaja Masjid</span>
                                 </a>
                             </li>
