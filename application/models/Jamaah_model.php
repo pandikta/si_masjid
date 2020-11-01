@@ -160,4 +160,15 @@ class Jamaah_model extends CI_model
     {
         return $this->db->get('tb_remajamasjid')->result_array();
     }
+
+    public function addRemajaMasjid()
+    {
+        $data = array(
+            'nama' => $this->input->post('nama', true),
+            'alamat' => $this->input->post('alamat', true),
+            'no_hp' => $this->input->post('no_hp')
+        );
+
+        $this->db->insert('tb_remajamasjid', $data);
+    }
 }

@@ -32,7 +32,7 @@
                             <div class="d-flex align-items-center">
                                 <h4 class="card-title">Data Remaja Masjid</h4>
 
-                                <a href="<?= base_url('admin/jamaah/tambah_muazin') ?>" class="btn btn-primary btn-round ml-auto">
+                                <a href="<?= base_url('admin/jamaah/tambah_remajamasjid') ?>" class="btn btn-primary btn-round ml-auto">
                                     <i class="fa fa-plus"></i>
                                     Tambah Data Remaja Masjid
                                 </a>
