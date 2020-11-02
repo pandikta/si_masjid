@@ -57,7 +57,8 @@
 
 <!-- Sweet Alert -->
 <script src="<?= base_url('assets/vendor_template_admin') ?>/js/plugin/sweetalert/sweetalert2.all.min.js"></script>
-<script src="<?= base_url('assets/vendor_template_admin') ?>/js/plugin/sweetalert/myscript.js"></script>
+<!-- my script -->
+<script src="<?= base_url('assets/vendor_template_admin') ?>/js/myscript.js"></script>
 
 <!-- Atlantis JS -->
 <script src="<?= base_url('assets/vendor_template_admin') ?>/js/atlantis.min.js"></script>
