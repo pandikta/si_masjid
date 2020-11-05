@@ -89,8 +89,13 @@ $('.tombol-reset').on('click', function (e) {
 
 });
 
-// bikin format rupiah
-function buatRupiah($angka){
-    $hasil = "Rp " . number_format($angka,2,',','.');
-    return $hasil;
-}
+// menu active
+// $(document).on('click', 'ul li', function(){
+//     $(this).addClass('active').siblings().removeClass('active')
+// })
+// $(document).ready(function(){
+//     $("ul li a").click(function(){
+//         $("li a").removeClass('active');
+//         $(this).addClass('active');
+//     })
+// })

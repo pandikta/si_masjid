@@ -3,7 +3,7 @@
         <!-- Logo Header -->
         <div class="logo-header" data-background-color="dark2">
 
-            <a href="index.html" class="logo">
+            <a href="<?= base_url('admin/dashboard') ?>" class="logo">
                 <img src="<?= base_url('assets/') ?>img/logo2.png" style="heigth:100px; width:170px" alt="navbar brand" class="navbar-brand">
             </a>
             <button class="navbar-toggler sidenav-toggler ml-auto" type="button" data-toggle="collapse" data-target="collapse" aria-expanded="false" aria-label="Toggle navigation">

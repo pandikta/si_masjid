@@ -1,3 +1,4 @@
+<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
 <footer class="footer">
     <div class="container-fluid">
         <nav class="pull-left">
@@ -21,7 +22,20 @@
     </div>
 </footer>
 </div>
+<!-- script show password -->
+<script type="text/javascript">
+    function change() {
+        var x = document.getElementById('password').type;
 
+        if (x == 'password') {
+            document.getElementById('password').type = 'text';
+            document.getElementById('mybutton').innerHTML;
+        } else {
+            document.getElementById('password').type = 'password';
+            document.getElementById('mybutton').innerHTML;
+        }
+    }
+</script>
 </div>
 <!--   Core JS Files   -->
 <script src="<?= base_url('assets/vendor_template_admin') ?>/js/core/jquery.3.2.1.min.js"></script>

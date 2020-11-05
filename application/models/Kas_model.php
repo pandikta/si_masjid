@@ -39,4 +39,24 @@ class Kas_model extends CI_model
         $query = "SELECT count(*) as clazis FROM kas_masjid WHERE lazis = 'wakaf'";
         return $this->db->query($query)->row_array();
     }
+
+    public function addPemasukan()
+    {
+
+        $masuk = $this->input->post('masuk', true);
+
+        //membuang Rp dan Titik
+        $masuk_hasil = preg_replace("/[^0-9]/", "", $masuk);
+
+        $data = array(
+            'tgl_km' => $this->input->post('tgl_km', true),
+            'keterangan' => $this->input->post('keterangan', true),
+            'masuk' => $masuk_hasil,
+            'keluar' => '0',
+            'jenis' => 'masuk',
+            'lazis' => $this->input->post('lazis', true)
+        );
+
+        $this->db->insert('kas_masjid', $data);
+    }
 }

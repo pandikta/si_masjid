@@ -38,7 +38,7 @@
                 </div>
             </div>
             <ul class="nav nav-primary">
-                <li class="nav-item">
+                <li class="nav-item active">
                     <a href="<?= base_url('admin/dashboard'); ?>">
                         <i class="fas fa-home"></i>
                         <p>Dashboard</p>
@@ -58,6 +58,7 @@
                     </span>
                     <h4 class="text-section">Components</h4>
                 </li>
+
                 <li class="nav-item">
                     <a data-toggle="collapse" href="#base">
                         <i class="fas fa-users"></i>

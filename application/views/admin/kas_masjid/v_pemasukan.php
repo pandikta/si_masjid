@@ -130,10 +130,10 @@
                         <div class="card-header">
                             <div class="d-flex align-items-center">
                                 <div class="card-title"><span><i class="fas fa-table"></i></span> Data Pemasukan</div>
-                                <a href="<?= base_url('admin/kas_masjid/tambah_kasmasuk') ?>" class="btn btn-primary btn-round ml-auto">
+                                <button data-toggle="modal" data-target="#exampleModalCenter" class="btn btn-primary btn-round ml-auto">
                                     <i class="fa fa-plus"></i>
                                     Tambah Data
-                                </a>
+                                </button>
 
                             </div>
                         </div>
@@ -193,3 +193,91 @@
             </div>
         </div>
     </div>
+
+    <!-- Modal Tambah Pemasukan-->
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content card">
+                <div class="modal-header">
+                    <h2 class="modal-title text-white" id="exampleModalCenterTitle">Tambah Pemasukan</h2>
+                    <button style="color: tomato;" type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="<?= base_url('admin/kas_masjid/tambah_kas') ?>" method="POST">
+                        <div class="form-group">
+                            <div class="input-icon">
+                                <span class="input-icon-addon">
+                                    <i class="icon-calendar"></i>
+                                </span>
+                                <input name="tgl_km" type="date" class="form-control" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="input-icon">
+                                <span class="input-icon-addon">
+                                    <i class="icon-book-open"></i>
+                                </span>
+                                <input name="keterangan" type="text" class="form-control" placeholder="Keterangan" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="input-icon">
+                                <span class="input-icon-addon">
+                                    <i class="fas fa-money-check-alt"></i>
+                                </span>
+                                <input name="masuk" id="masuk" type="text" class="form-control" placeholder="Jumlah Pemasukan" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group form-floating-label">
+                            <select name="lazis" class="form-control input-solid" id="selectFloatingLabel2" required>
+                                <option value="">&nbsp;</option>
+                                <option>Infaq</option>
+                                <option>Shadaqah</option>
+                                <option>Wakaf</option>
+                                <option>Zakat</option>
+
+                            </select>
+                            <label for="selectFloatingLabel2" class="placeholder">Jenis Lazis</label>
+                        </div>
+
+                </div>
+                <div class="card-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Tambah</button>
+                </div>
+                </form>
+            </div>
+        </div>
+        <script type="text/javascript">
+            var masuk = document.getElementById('masuk');
+            masuk.addEventListener('keyup', function(e) {
+                // tambahkan 'Rp.' pada saat form di ketik
+                // gunakan fungsi formatmasuk() untuk mengubah angka yang di ketik menjadi format angka
+                masuk.value = formatmasuk(this.value, 'Rp ');
+            });
+
+            /* Fungsi formatmasuk */
+            function formatmasuk(angka, prefix) {
+                var number_string = angka.replace(/[^,\d]/g, '').toString(),
+                    split = number_string.split(','),
+                    sisa = split[0].length % 3,
+                    masuk = split[0].substr(0, sisa),
+                    ribuan = split[0].substr(sisa).match(/\d{3}/gi);
+
+                // tambahkan titik jika yang di input sudah menjadi angka ribuan
+                if (ribuan) {
+                    separator = sisa ? '.' : '';
+                    masuk += separator + ribuan.join('.');
+                }
+
+                masuk = split[1] != undefined ? masuk + ',' + split[1] : masuk;
+                return prefix == undefined ? masuk : (masuk ? 'Rp ' + masuk : '');
+            }
+        </script>
+    </div>
+    <!-- end modal add -->

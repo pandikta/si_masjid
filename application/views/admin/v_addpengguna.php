@@ -42,22 +42,40 @@
                             </div>
                             <div class="form-group">
                                 <label class="col-sm-2 col-form-label">Username</label>
-                                <input type="text" name="username" class="form-control" placeholder="masukkan username" value="<?= set_value('username'); ?>" required>
-                                <?= form_error('username', '<small class="text-danger pl-3">', '</small>'); ?>
+                                <div class="input-icon">
+                                    <span class="input-icon-addon">
+                                        <i class="fa fa-user"></i>
+                                    </span>
+                                    <input type="text" name="username" class="form-control" placeholder="masukkan username" value="<?= set_value('username'); ?>" required>
+                                    <?= form_error('username', '<small class="text-danger pl-3">', '</small>'); ?>
+                                </div>
                             </div>
+
                             <div class="form-group">
                                 <label class="col-sm-2 col-form-label">Password</label>
-                                <input type="password" name="password" class="form-control" id="password" placeholder="Password" required>
-                                <?= form_error('password', '<small class="text-danger pl-3">', '</small>'); ?>
+                                <div class="input-icon">
+                                    <span class="input-icon-addon">
+                                        <i class="fa fa-key"></i>
+                                    </span>
+                                    <input type="password" name="password" class="form-control" id="password" placeholder="Password" required>
+                                    <?= form_error('password', '<small class="text-danger pl-3">', '</small>'); ?>
+                                </div>
+                                <div class="form-check">
+                                    <label class="form-check-label">
+                                        <input id="mybutton" onclick="change()" class="form-check-input" type="checkbox" value="">
+                                        <span class="form-check-sign text-white">Lihat Password</span>
+                                    </label>
+                                </div>
                             </div>
+
                             <div class="form-group">
-                                <label class="col-sm-2 col-form-label"">Level</label>
+                                <label class="col-sm-2 col-form-label">Level</label>
                                 <select name=" level" class="form-control" id="exampleFormControlSelect1">
                                     <option>Pilih Level</option>
                                     <option>Administrator</option>
                                     <option>Bendahara</option>
-                                    </select>
-                                    <?= form_error('level', '<small class="text-danger pl-3">', '</small>'); ?>
+                                </select>
+                                <?= form_error('level', '<small class="text-danger pl-3">', '</small>'); ?>
                             </div>
                             <div class="card-action">
                                 <button type="submit" class="btn btn-primary">Tambah</button>
