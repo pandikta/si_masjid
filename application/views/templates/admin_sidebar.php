@@ -38,7 +38,7 @@
                 </div>
             </div>
             <ul class="nav nav-primary">
-                <li class="nav-item active">
+                <li class="nav-item">
                     <a href="<?= base_url('admin/dashboard'); ?>">
                         <i class="fas fa-home"></i>
                         <p>Dashboard</p>

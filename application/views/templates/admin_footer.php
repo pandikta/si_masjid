@@ -1,3 +1,5 @@
+</div>
+<!-- end content -->
 <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
 <footer class="footer">
     <div class="container-fluid">
@@ -39,6 +41,7 @@
 </div>
 <!--   Core JS Files   -->
 <script src="<?= base_url('assets/vendor_template_admin') ?>/js/core/jquery.3.2.1.min.js"></script>
+</div>
 <script src="<?= base_url('assets/vendor_template_admin') ?>/js/core/popper.min.js"></script>
 <script src="<?= base_url('assets/vendor_template_admin') ?>/js/core/bootstrap.min.js"></script>
 
@@ -63,7 +66,7 @@
 <script src="<?= base_url('assets/vendor_template_admin') ?>/js/plugin/datatables/datatables.min.js"></script>
 
 <!-- Bootstrap Notify -->
-<script src="<?= base_url('assets/vendor_template_admin') ?>/js/plugin/bootstrap-notify/bootstrap-notify.min.js"></script>
+<!-- <script src="<?= base_url('assets/vendor_template_admin') ?>/js/plugin/bootstrap-notify/bootstrap-notify.min.js"></script> -->
 
 <!-- jQuery Vector Maps -->
 <script src="<?= base_url('assets/vendor_template_admin') ?>/js/plugin/jqvmap/jquery.vmap.min.js"></script>
@@ -79,32 +82,19 @@
 <script>
     $(document).ready(function() {
         $('#basic-datatables').DataTable({});
+    });
 
-        $('#multi-filter-select').DataTable({
-            "pageLength": 10,
-            initComplete: function() {
-                this.api().columns().every(function() {
-                    var column = this;
-                    var select = $('<select class="form-control"><option value=""></option></select>')
-                        .appendTo($(column.footer()).empty())
-                        .on('change', function() {
-                            var val = $.fn.dataTable.util.escapeRegex(
-                                $(this).val()
-                            );
-
-                            column
-                                .search(val ? '^' + val + '$' : '', true, false)
-                                .draw();
-                        });
-
-                    column.data().unique().sort().each(function(d, j) {
-                        select.append('<option value="' + d + '">' + d + '</option>')
-                    });
-                });
+    // tabel pemasukan dengan serverside
+    $(document).ready(function() {
+        $('#basic-datatables2').DataTable({
+            "processing": true,
+            "serverSide": true,
+            "ajax": {
+                "url": "<?= site_url('admin/kas_masjid/get_ajax') ?>",
+                "type": "POST"
             }
+
         });
-
-
     });
 </script>
 </body>

@@ -51,7 +51,7 @@
 
                             <div class="card-action">
                                 <button type="submit" class="btn btn-primary">Edit</button>
-                                <a href="<?= base_url('admin/jamaah'); ?>" type="button" class="btn btn-danger">Cancel</a>
+                                <a href="<?= base_url('admin/jamaah/muazin'); ?>" type="button" class="btn btn-danger">Cancel</a>
                             </div>
 
                         </form>

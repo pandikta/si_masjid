@@ -11,6 +11,41 @@ class Kas_masjid extends CI_Controller
         $this->load->model('Kas_model');
     }
 
+    function get_ajax()
+    {
+        $list = $this->Kas_model->get_datatables();
+        $data = array();
+        $no = @$_POST['start'];
+        foreach ($list as $item) {
+            $tgl = $item->tgl_km;
+            $no++;
+            $row = array();
+            $row[] = $no . ".";
+            $row[] = date("d-M-Y", strtotime($tgl));
+            $row[] = $item->keterangan;
+            $row[] = $item->masuk;
+            $row[] = $item->lazis;
+            // add html for action
+            $row[] = '<div class="form-button-action">
+                <a href="' . site_url('admin/kas_masjid/edit_kasmasuk/' . $item->id) . '" data-toggle="tooltip" class="btn btn-link btn-primary btn-lg" data-original-title="Edit Data"> 
+                    <i class="fa fa-edit"></i>
+                </a>
+                <a href="' . site_url('admin/kas_masjid/delete_kasmasuk/' . $item->id) . '" data-toggle="tooltip" class="btn btn-link btn-danger tombol-hapus" data-original-title="Hapus">
+                    <i class="fa fa-times"></i>
+                </a>
+            </div>';
+            $data[] = $row;
+        }
+        $output = array(
+            "draw" => @$_POST['draw'],
+            "recordsTotal" => $this->Kas_model->count_all(),
+            "recordsFiltered" => $this->Kas_model->count_filtered(),
+            "data" => $data,
+        );
+        // output to json format
+        echo json_encode($output);
+    }
+
     //pemasukan
     public function index()
     {
