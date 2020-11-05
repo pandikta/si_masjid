@@ -16,7 +16,7 @@
 <script src="<?= base_url('assets/vendor_login/') ?>js/main.js"></script>
 <!-- Sweet Alert -->
 <script src="<?= base_url('assets/vendor_template_admin') ?>/js/plugin/sweetalert/sweetalert2.all.min.js"></script>
-<script src="<?= base_url('assets/vendor_template_admin') ?>/js/plugin/sweetalert/myscript.js"></script>
+<script src="<?= base_url('assets/vendor_template_admin') ?>/js/myscript.js"></script>
 </body>
 
 </html>
