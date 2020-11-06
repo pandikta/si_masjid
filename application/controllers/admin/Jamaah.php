@@ -8,6 +8,7 @@ class Jamaah extends CI_Controller
         parent::__construct();
         $this->load->library('session');
         $this->load->model('Jamaah_model');
+        is_logged_in();
     }
 
     //utk imam

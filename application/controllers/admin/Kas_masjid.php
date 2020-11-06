@@ -9,9 +9,10 @@ class Kas_masjid extends CI_Controller
         parent::__construct();
         $this->load->library('session');
         $this->load->model('Kas_model');
+        is_logged_in();
     }
 
-    function get_ajax()
+    function get_ajax_pemasukan()
     {
         $list = $this->Kas_model->get_datatables();
         $data = array();

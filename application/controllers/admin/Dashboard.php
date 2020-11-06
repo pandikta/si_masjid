@@ -8,6 +8,7 @@ class Dashboard extends CI_Controller
     {
         parent::__construct();
         $this->load->library('session');
+        is_logged_in();
     }
 
     public function index()

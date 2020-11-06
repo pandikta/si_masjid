@@ -90,7 +90,7 @@
             "processing": true,
             "serverSide": true,
             "ajax": {
-                "url": "<?= site_url('admin/kas_masjid/get_ajax') ?>",
+                "url": "<?= site_url('admin/kas_masjid/get_ajax_pemasukan') ?>",
                 "type": "POST"
             }
 
