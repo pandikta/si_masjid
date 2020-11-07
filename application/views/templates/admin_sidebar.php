@@ -111,7 +111,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="#">
+                                <a href="<?= base_url('pengeluaran'); ?>">
                                     <span class="sub-item">Pengeluaran</span>
                                 </a>
                             </li>

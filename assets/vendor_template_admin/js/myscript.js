@@ -89,13 +89,16 @@ $('.tombol-reset').on('click', function (e) {
 
 });
 
-// menu active
-// $(document).on('click', 'ul li', function(){
-//     $(this).addClass('active').siblings().removeClass('active')
-// })
-// $(document).ready(function(){
-//     $("ul li a").click(function(){
-//         $("li a").removeClass('active');
-//         $(this).addClass('active');
-//     })
-// })
+$(document).ready(function() {
+        // Untuk sunting
+        $('#editPemasukan').on('show.bs.modal', function (event) {
+            var div = $(event.relatedTarget) // Tombol dimana modal di tampilkan
+            var modal          = $(this)
+
+            // Isi nilai pada field
+            modal.find('#tgl_km').attr("value",div.data('tgl_km'));
+            modal.find('#keterangan').html(div.data('keterangan'));
+            modal.find('#masuk').attr("value",div.data('masuk'));
+            modal.find('#lazis').attr("value",div.data('lazis'));
+        });
+    });

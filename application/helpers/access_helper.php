@@ -9,21 +9,19 @@ function is_logged_in()
         redirect('admin/auth'); //maka akan langsung dipindahkan ke menu login
     } else {
 
-        $role_id = $ci->session->userdata('level');
-        $menu = $ci->uri->segment(1); //mengambil nama menu pada url
+        // // $sesssion_level = $ci->session->userdata('level');
+        // // $menu = $ci->uri->segment(1); //mengambil nama menu pada url
 
-        //query select*from user_menu where menu = $menu
-        $queryMenu = $ci->db->get_where('menu', ['name_menu' => $menu])->row_array();
-        $level = ['administrator', 'bendahara'];
-        //query select*from user_acces_menu where role_id = $role_id and menu_id=$menu_id
-        $userAccess = $ci->db->get_where('tb_pengguna', ['level' => $level]);
+        // // $level = ['administrator', 'bendahara'];
+        // // //query select*from user_acces_menu where role_id = $role_id and menu_id=$menu_id
+        // // $userAccess = $ci->db->get_where('tb_pengguna', ['level' => $level]);
 
-        //jika saat login user maksa akses ke menu admin
-        if ($userAccess == $level['administrator']) {
-            // < 1 , karena saat user akses menu admin , di db tidak terdapat access ,
-            // yg artinya hasil dari userAccess itu adalah 0
-            redirect('auth/blocked'); //akses dipindahkan ke laman blocked
-        }
+        // // //jika saat login user maksa akses ke menu admin
+        // // if ($userAccess == $level['administrator']) {
+        // //     // < 1 , karena saat user akses menu admin , di db tidak terdapat access ,
+        // //     // yg artinya hasil dari userAccess itu adalah 0
+        // //     redirect('auth/blocked'); //akses dipindahkan ke laman blocked
+        // }
     }
 }
 

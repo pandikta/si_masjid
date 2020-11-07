@@ -1,6 +1,6 @@
 </div>
 <!-- end content -->
-<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+
 <footer class="footer">
     <div class="container-fluid">
         <nav class="pull-left">
@@ -24,6 +24,34 @@
     </div>
 </footer>
 </div>
+<script src="<?= base_url('assets/vendor_template_admin') ?>/js/core/jquery.3.2.1.min.js"></script>
+
+<!-- script datatabel -->
+<script>
+    $(document).ready(function() {
+        $('#basic-datatables').DataTable({});
+    });
+
+    // tabel pemasukan dengan serverside
+    // $(document).ready(function() {
+
+    //     $('#basic-datatables2').DataTable({
+    //         "processing": true,
+    //         "serverSide": true,
+    //         "ajax": {
+    //             "url": "<?= site_url('admin/kas_masjid/get_ajax_pemasukan') ?>",
+    //             "type": "POST"
+    //         },
+    //         "columnDefs": [{
+    //             "targets": 5,
+    //             "data": null,
+    //             "orderable": false,
+    //             "defaultContent": "<div class='form-button-action'><a href='' data-toggle='modal' data-target='#editpemasukan' class='btn btn-link btn-primary btn-lg'><i class='fa fa-edit'></i></a> <a  href='' class='btn btn-link btn-danger btn-lg tombol-hapus'><i class='fa fa-times'></i></a> </div>"
+    //         }]
+    //     });
+    // });
+</script>
+
 <!-- script show password -->
 <script type="text/javascript">
     function change() {
@@ -38,10 +66,12 @@
         }
     }
 </script>
+
+
 </div>
 <!--   Core JS Files   -->
-<script src="<?= base_url('assets/vendor_template_admin') ?>/js/core/jquery.3.2.1.min.js"></script>
-</div>
+
+
 <script src="<?= base_url('assets/vendor_template_admin') ?>/js/core/popper.min.js"></script>
 <script src="<?= base_url('assets/vendor_template_admin') ?>/js/core/bootstrap.min.js"></script>
 
@@ -79,24 +109,7 @@
 
 <!-- Atlantis JS -->
 <script src="<?= base_url('assets/vendor_template_admin') ?>/js/atlantis.min.js"></script>
-<script>
-    $(document).ready(function() {
-        $('#basic-datatables').DataTable({});
-    });
 
-    // tabel pemasukan dengan serverside
-    $(document).ready(function() {
-        $('#basic-datatables2').DataTable({
-            "processing": true,
-            "serverSide": true,
-            "ajax": {
-                "url": "<?= site_url('admin/kas_masjid/get_ajax_pemasukan') ?>",
-                "type": "POST"
-            }
-
-        });
-    });
-</script>
 </body>
 
 </html>
