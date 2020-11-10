@@ -23,7 +23,8 @@
             }
         });
     </script>
-    <!-- bootstrap -->
+    <!-- Chart JS -->
+    <script src="<?= base_url('assets/vendor_template_admin') ?>/js/plugin/chart.js/chart.min.js"></script>
 
     <!-- CSS Files -->
     <link rel="stylesheet" href="<?= base_url('assets/vendor_template_admin') ?>/css/bootstrap.min.css">

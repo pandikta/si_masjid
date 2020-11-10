@@ -190,4 +190,10 @@ class Kas_model extends CI_model
     {
         $this->db->delete('kas_masjid', ['id' => $id]);
     }
+
+    public function getJumlahKas()
+    {
+        $query = "SELECT (sum(masuk)-sum(keluar)) as tot_kas FROM kas_masjid";
+        return $this->db->query($query)->row_array();
+    }
 }

@@ -83,8 +83,7 @@
 <script src="<?= base_url('assets/vendor_template_admin') ?>/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js"></script>
 
 
-<!-- Chart JS -->
-<script src="<?= base_url('assets/vendor_template_admin') ?>/js/plugin/chart.js/chart.min.js"></script>
+
 
 <!-- jQuery Sparkline -->
 <script src="<?= base_url('assets/vendor_template_admin') ?>/js/plugin/jquery.sparkline/jquery.sparkline.min.js"></script>
