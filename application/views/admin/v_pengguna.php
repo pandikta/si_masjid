@@ -48,7 +48,7 @@
                                                 <th>No</th>
                                                 <th>Nama</th>
                                                 <th>Username</th>
-                                                <th>Level</th>
+                                                <th>Divisi</th>
                                                 <th style="width: 10%">Action</th>
                                             </tr>
                                         </thead>
@@ -57,7 +57,7 @@
                                                 <th>No</th>
                                                 <th>Nama</th>
                                                 <th>Username</th>
-                                                <th>Level</th>
+                                                <th>Divisi</th>
                                                 <th>Action</th>
                                             </tr>
                                         </tfoot>
@@ -70,15 +70,18 @@
                                                     <td><?= $u['level']; ?></td>
                                                     <td>
                                                         <div class="form-button-action">
-                                                            <a href="<?= base_url('admin/pengguna/edit_pengguna/') . $u['id']; ?>" data-toggle="tooltip" class="btn btn-link btn-primary btn-lg" data-original-title="Edit Data">
+                                                            <a href="<?= base_url('admin/pengguna/edit_pengguna/') . encrypt_url($u['id']); ?>" data-toggle="tooltip" class="btn btn-link btn-primary btn-lg" data-original-title="Edit Data">
                                                                 <i class="fa fa-edit"></i>
                                                             </a>
-                                                            <a href="<?= base_url('admin/pengguna/delete_pengguna/') . $u['id']; ?>" data-toggle="tooltip" class="btn btn-link btn-danger tombol-hapus" data-original-title="Hapus">
+                                                            <a href="<?= base_url('admin/pengguna/delete_pengguna/') . encrypt_url($u['id']);  ?>" data-toggle="tooltip" class="btn btn-link btn-danger tombol-hapus" data-original-title="Hapus">
                                                                 <i class="fa fa-times"></i>
                                                             </a>
-                                                            <a href="#" data-toggle="tooltip" class="btn btn-link btn-warning tombol-reset" data-original-title="Reset Password Jadi : 1234">
+                                                            <a href="<?= base_url('admin/pengguna/reset_pass/') . encrypt_url($u['id']);  ?>" data-toggle="tooltip" class="btn btn-link btn-warning tombol-reset" data-original-title="Reset Password Jadi : 1234">
                                                                 <i class="fas fa-undo"></i>
                                                             </a>
+
+                                                            <a href="<?= base_url('admin/pengguna/toggle/') . encrypt_url($u['id']);  ?>" class="btn btn-link  <?= $u['is_active'] ? 'btn-success tombol-aktif' : 'btn-danger tombol-nonaktif' ?>" data-toggle="tooltip" data-original-title="<?= $u['is_active'] ? 'Nonaktifkan User' : 'Aktifkan User' ?>"><i class="fa fa-fw fa-power-off"></i></a>
+
                                                         </div>
                                                     </td>
                                                 </tr>

@@ -6,7 +6,7 @@ function is_logged_in()
 
     //$this diganti dng $ci
     if (!$ci->session->userdata('username')) { //jika saat login tidak terdapat session / user maksa akses tanpa login
-        redirect('admin/auth'); //maka akan langsung dipindahkan ke menu login
+        redirect('login'); //maka akan langsung dipindahkan ke menu login
     } else {
 
         // // $sesssion_level = $ci->session->userdata('level');

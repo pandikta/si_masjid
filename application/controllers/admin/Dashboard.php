@@ -18,11 +18,43 @@ class Dashboard extends CI_Controller
         $data['kas'] = $this->Kas_model->getJumlahKas();
         $data['kasmasuk'] = $this->Kas_model->getTotalPemasukan();
         $data['kaskeluar'] = $this->Kas_model->getTotalPengeluaran();
+        $data['imam'] = $this->db->count_all('tb_imam');
+        $data['khatib'] = $this->db->count_all('tb_khatib');
+        $data['muazin'] = $this->db->count_all('tb_muazin');
+        $data['pengurus'] = $this->db->count_all('tb_pengurus');
+        $data['remajamasjid'] = $this->db->count_all('tb_remajamasjid');
+        $data['jan'] = $this->Kas_model->getJumlahJan();
+        $data['Feb'] = $this->Kas_model->getJumlahFeb();
+        $data['Mar'] = $this->Kas_model->getJumlahMar();
+        $data['Apr'] = $this->Kas_model->getJumlahApr();
+        $data['Mei'] = $this->Kas_model->getJumlahMei();
+        $data['Jun'] = $this->Kas_model->getJumlahJun();
+        $data['Jul'] = $this->Kas_model->getJumlahJul();
+        $data['Aug'] = $this->Kas_model->getJumlahAug();
+        $data['Sep'] = $this->Kas_model->getJumlahSep();
+        $data['Okt'] = $this->Kas_model->getJumlahOkt();
+        $data['Nov'] = $this->Kas_model->getJumlahNov();
+        $data['Des'] = $this->Kas_model->getJumlahDes();
 
-        $this->load->view('templates/admin_header');
-        $this->load->view('templates/admin_topbar');
-        $this->load->view('templates/admin_sidebar', $data);
-        $this->load->view('admin/v_dashboard', $data);
-        $this->load->view('templates/admin_footer');
+        $level = $this->session->userdata('level');
+        if ($level == 'administrator') {
+            $this->load->view('templates/admin_header');
+            $this->load->view('templates/admin_topbar');
+            $this->load->view('templates/admin_sidebar', $data);
+            $this->load->view('admin/v_dashboard', $data);
+            $this->load->view('templates/admin_footer');
+        } else if ($level == 'bendahara') {
+            $this->load->view('templates/admin_header');
+            $this->load->view('templates/admin_topbar');
+            $this->load->view('templates/bendahara_sidebar', $data);
+            $this->load->view('admin/v_dashboard', $data);
+            $this->load->view('templates/admin_footer');
+        } else {
+            $this->load->view('templates/admin_header');
+            $this->load->view('templates/admin_topbar');
+            $this->load->view('templates/pengurus_sidebar', $data);
+            $this->load->view('admin/v_dashboard', $data);
+            $this->load->view('templates/admin_footer');
+        }
     }
 }

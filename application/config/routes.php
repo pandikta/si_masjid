@@ -49,11 +49,40 @@ defined('BASEPATH') or exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
-$route['default_controller'] = 'home';
+// login
+$route['logout'] = 'admin/auth/logout';
 $route['administrator'] = 'admin/auth';
+$route['login'] = 'admin/auth';
+$route['register'] = 'admin/auth/register';
+//$route['*'] = 'admin/auth';
+
+//halaman admin
+$route['dashboard'] = 'admin/dashboard';
 $route['pemasukan'] = 'admin/kas_masjid';
 $route['pengeluaran'] = 'admin/kas_masjid/pengeluaran';
+$route['rekap'] = 'admin/kas_masjid/rekap';
 $route['addpengguna'] = 'admin/pengguna/add_pengguna';
+
 $route['imam'] = 'admin/jamaah';
+$route['khatib'] = 'admin/jamaah/khatib';
+$route['pengurus'] = 'admin/jamaah/pengurus';
+$route['muazin'] = 'admin/jamaah/muazin';
+$route['remaja_masjid'] = 'admin/jamaah/remajamasjid';
+$route['tambahimam'] = 'admin/jamaah/tambah_imam';
+$route['tambahkhatib'] = 'admin/jamaah/tambah_khatib';
+$route['tambahpengurus'] = 'admin/jamaah/tambah_pengurus';
+$route['tambahmuazin'] = 'admin/jamaah/tambah_muazin';
+$route['tambahremaja'] = 'admin/jamaah/tambah_imam';
+
+$route['pengajian'] = 'admin/kegiatan';
+$route['profile'] = 'admin/pengguna/edit_profile';
+$route['pengguna'] = 'admin/pengguna';
+$route['qurban'] = 'admin/qurban';
+$route['galeri'] = 'admin/kegiatan/foto_kegiatan';
+$route['katasandi'] = 'admin/pengguna/ubah_katasandi';
+$route['tugasjumat'] = 'admin/kegiatan/petugas_jumat';
+$route['kotaksaran'] = 'admin/kotaksaran';
+
+$route['default_controller'] = 'home';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

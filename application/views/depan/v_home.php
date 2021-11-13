@@ -1,4 +1,4 @@
-<section class="hero-wrap js-fullheight" style="background-image: url('assets/vendor_template_home/images/bg-3.jpg');" data-stellar-background-ratio="0.5">
+<section class="hero-wrap js-fullheight" style="background-image: url('assets/img/bg-3.jpg');" data-stellar-background-ratio="0.5">
     <div class="overlay"></div>
     <div class="container">
         <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center" data-scrollax-parent="true">
@@ -7,7 +7,7 @@
                     <h1 class="mb-4">Welcome to Darussalam Mosque</h1>
                     <p style="font-size:50px;" class="mb-2">اَللّهُمَّ يَسِّرْ وَ لَا تُعَسِّر</p>
                     <p style="font-size:25px;" class="mb-4">“Ya Allah permudahlah dan jangan Engkau persulit!”</p>
-                    <p><a href="#" class="btn btn-primary">Hubungi Kami</a></p>
+                    <p><a href="https://api.whatsapp.com/send/?phone=6281234567&text=Assalamualaikum&app_absent=0" target="_blank" class="btn btn-primary">Hubungi Kami</a></p>
                 </div>
             </div>
         </div>
@@ -18,7 +18,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6 d-flex align-items-stretch">
-                <div class="about-wrap img w-100" style="background-image: url(assets/vendor_template_home/images/tentang.jpg);">
+                <div class="about-wrap img w-100" style="background-image: url(assets/img/tentang.jpg);">
                 </div>
             </div>
             <div class="col-md-6 py-5 pl-md-5">
@@ -26,8 +26,7 @@
                     <div class="col-md-12 heading-section ftco-animate">
                         <span class="subheading">Selamat Datang</span>
                         <h2 class="mb-4">Selamat Datang Di SISI Masjid Darussalam</h2>
-                        <p>Kajian pekanan dengan berbagai macam materi yang diadakan setiap hari
-                            Senin, Selasa, Kamis, Ahad. Dapatkan ilmu dan sahabat baru di setiap kajian.</p>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus suscipit, doloribus omnis debitis autem ea, sed atque quis rem pariatur assumenda minima enim magni voluptatum. Earum hic corrupti magnam molestias..</p>
                     </div>
                 </div>
                 <div class="row">

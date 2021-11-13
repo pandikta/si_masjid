@@ -32,7 +32,7 @@
                     </div>
                     <div class="row">
 
-                        <form class="col-md-12 col-lg-4" action="<?= base_url('admin/jamaah/edit_muazin/') . $tampilmuazin['id']; ?>" method="post">
+                        <form class="col-md-12 col-lg-4" action="<?= base_url('admin/jamaah/edit_muazin/') . encrypt_url($tampilmuazin['id']); ?>" method="post">
                             <div class="form-group">
                                 <label class="col-sm-2 col-form-label">Nama</label>
                                 <input type="text" name="nama" class="form-control" placeholder="masukkan nama" value="<?= $tampilmuazin['nama']; ?>" required>

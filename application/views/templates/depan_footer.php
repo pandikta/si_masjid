@@ -17,11 +17,14 @@
                 <div class="ftco-footer-widget">
                     <h2 class="ftco-heading-2">Links</h2>
                     <ul class="list-unstyled">
-                        <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Home</a></li>
-                        <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>About Us</a></li>
-                        <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Gallery</a></li>
-                        <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Blog</a></li>
-                        <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Contact</a></li>
+                        <li><a href="<?= base_url('home') ?>"><span class="fa fa-chevron-right mr-2"></span>Home</a></li>
+                        <li><a href="<?= base_url('about') ?>"><span class="fa fa-chevron-right mr-2"></span>Profil</a></li>
+                        <li><a href="<?= base_url('gallery') ?>"><span class="fa fa-chevron-right mr-2"></span>Gallery</a></li>
+                        <li><a href="<?= base_url('jumat') ?>"><span class="fa fa-chevron-right mr-2"></span>Jadwal Petugas Jumat</a></li>
+                        <li><a href="<?= base_url('dana') ?>"><span class="fa fa-chevron-right mr-2"></span>Dana</a></li>
+                        <li><a href="<?= base_url('#') ?>"><span class="fa fa-chevron-right mr-2"></span>Kegiatan</a></li>
+                        <li><a href="<?= base_url('saran') ?>"><span class="fa fa-chevron-right mr-2"></span>Saran</a></li>
+                        <li><a href="<?= base_url('#') ?>"><span class="fa fa-chevron-right mr-2"></span>Hitung Qurban</a></li>
                     </ul>
                 </div>
             </div>
@@ -34,7 +37,7 @@
                     <div class="block-23 mb-3">
                         <ul>
                             <li><span class="fa fa-map-marker mr-3"></span><a href="https://www.google.com/maps/search/Sidomulyo+Trimulyo,+Sleman,+KAB.+SLEMAN,+D.I+YOGYAKARTA" class="text" target="blank_">Sidomulyo Trimulyo Sleman, Kab. Sleman D.I Yogyakarta</a></li>
-                            <li><a href="#"><span class="fa fa-phone mr-3"></span><span class="text">+62 123 456 789
+                            <li><a href="https://api.whatsapp.com/send/?phone=6281234567&text=Assalamualaikum&app_absent=0" target="_blank"><span class="fa fa-phone mr-3"></span><span class="text">+62 123 456 789
                                     </span></a></li>
                             <li><a href="#"><span class="fa fa-paper-plane mr-3"></span><span class="text">Darussalam@gmail.com</span></a></li>
                         </ul>
@@ -66,7 +69,9 @@
 <!-- loader -->
 <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px">
         <circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" />
-        <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00" /></svg></div>
+        <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00" />
+    </svg></div>
+<!-- sweetalert -->
 
 
 <script src="<?= base_url('assets/vendor_template_home/') ?>js/myscript.js"></script>
@@ -88,7 +93,8 @@
 
 <script src="<?= base_url('assets/vendor_template_home/') ?>js/main.js"></script>
 <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"></script> -->
-
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="<?= base_url('assets/vendor_template_admin') ?>/js/myscript.js"></script>
 </body>
 
 </html>

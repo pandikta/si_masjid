@@ -29,7 +29,7 @@
     <!-- CSS Files -->
     <link rel="stylesheet" href="<?= base_url('assets/vendor_template_admin') ?>/css/bootstrap.min.css">
     <link rel="stylesheet" href="<?= base_url('assets/vendor_template_admin') ?>/css/atlantis.min.css">
-
+    <script src="<?= base_url('assets/vendor_template_admin') ?>/js/core/jquery.3.2.1.min.js"></script>
 </head>
 
 <body data-background-color="dark">

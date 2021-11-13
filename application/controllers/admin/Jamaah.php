@@ -49,6 +49,9 @@ class Jamaah extends CI_Controller
 
     public function edit_imam($id)
     {
+
+        $id = decrypt_url($id);
+
         $data['user'] = $this->db->get_where('tb_pengguna', ['username' => $this->session->userdata('username')])->row_array();
         $data['tampilimam'] = $this->Jamaah_model->getImamById($id);
 
@@ -72,6 +75,7 @@ class Jamaah extends CI_Controller
 
     public function delete_imam($id)
     {
+        $id = decrypt_url($id);
         $this->Jamaah_model->deleteImam($id);
         $this->session->set_flashdata('message', 'Di Hapus');
         redirect('imam');
@@ -107,12 +111,15 @@ class Jamaah extends CI_Controller
 
             $this->Jamaah_model->addKhatib();
             $this->session->set_flashdata('message', 'Ditambahkan');
-            redirect('admin/jamaah/khatib');
+            redirect('khatib');
         }
     }
 
     public function edit_khatib($id)
     {
+
+        $id = decrypt_url($id);
+
         $data['user'] = $this->db->get_where('tb_pengguna', ['username' => $this->session->userdata('username')])->row_array();
         $data['tampilkhatib'] = $this->Jamaah_model->getKhatibById($id);
 
@@ -130,15 +137,16 @@ class Jamaah extends CI_Controller
         } else {
             $this->Jamaah_model->editKhatib($id);
             $this->session->set_flashdata('message', 'Di Edit');
-            redirect('admin/jamaah/khatib');
+            redirect('khatib');
         }
     }
 
     public function delete_khatib($id)
     {
+        $id = decrypt_url($id);
         $this->Jamaah_model->deleteKhatib($id);
         $this->session->set_flashdata('message', 'Di Hapus');
-        redirect('admin/jamaah/khatib');
+        redirect('khatib');
     }
 
     public function pengurus()
@@ -171,12 +179,13 @@ class Jamaah extends CI_Controller
 
             $this->Jamaah_model->addPengurus();
             $this->session->set_flashdata('message', 'Ditambahkan');
-            redirect('admin/jamaah/pengurus');
+            redirect('pengurus');
         }
     }
 
     public function edit_pengurus($id)
     {
+        $id = decrypt_url($id);
         $data['user'] = $this->db->get_where('tb_pengguna', ['username' => $this->session->userdata('username')])->row_array();
         $data['tampilpengurus'] = $this->Jamaah_model->getPengurusById($id);
 
@@ -194,15 +203,16 @@ class Jamaah extends CI_Controller
         } else {
             $this->Jamaah_model->editpengurus($id);
             $this->session->set_flashdata('message', 'Di Edit');
-            redirect('admin/jamaah/pengurus');
+            redirect('pengurus');
         }
     }
 
     public function delete_pengurus($id)
     {
+        $id = decrypt_url($id);
         $this->Jamaah_model->deletepengurus($id);
         $this->session->set_flashdata('message', 'Di Hapus');
-        redirect('admin/jamaah/pengurus');
+        redirect('pengurus');
     }
 
     public function muazin()
@@ -235,12 +245,13 @@ class Jamaah extends CI_Controller
 
             $this->Jamaah_model->addMuazin();
             $this->session->set_flashdata('message', 'Ditambahkan');
-            redirect('admin/jamaah/muazin');
+            redirect('muazin');
         }
     }
 
     public function edit_muazin($id)
     {
+        $id = decrypt_url($id);
         $data['user'] = $this->db->get_where('tb_pengguna', ['username' => $this->session->userdata('username')])->row_array();
         $data['tampilmuazin'] = $this->Jamaah_model->getMuazinById($id);
 
@@ -258,15 +269,16 @@ class Jamaah extends CI_Controller
         } else {
             $this->Jamaah_model->editMuazin($id);
             $this->session->set_flashdata('message', 'Di Edit');
-            redirect('admin/jamaah/muazin');
+            redirect('muazin');
         }
     }
 
     public function delete_muazin($id)
     {
+        $id = decrypt_url($id);
         $this->Jamaah_model->deleteMuazin($id);
         $this->session->set_flashdata('message', 'Di Hapus');
-        redirect('admin/jamaah/muazin');
+        redirect('muazin');
     }
 
     public function RemajaMasjid()
@@ -283,6 +295,7 @@ class Jamaah extends CI_Controller
 
     public function tambah_remajamasjid()
     {
+
         $data['user'] = $this->db->get_where('tb_pengguna', ['username' => $this->session->userdata('username')])->row_array();
         $this->form_validation->set_rules('nama', 'Nama', 'trim|required');
         $this->form_validation->set_rules('alamat', 'Alamat', 'trim|required');
@@ -299,12 +312,14 @@ class Jamaah extends CI_Controller
 
             $this->Jamaah_model->addRemajaMasjid();
             $this->session->set_flashdata('message', 'Ditambahkan');
-            redirect('admin/jamaah/remajamasjid');
+            redirect('remaja_masjid');
         }
     }
 
     public function edit_remajamasjid($id)
     {
+
+        $id = decrypt_url($id);
         $data['user'] = $this->db->get_where('tb_pengguna', ['username' => $this->session->userdata('username')])->row_array();
         $data['tampilremaja'] = $this->Jamaah_model->getRemajaById($id);
 
@@ -322,14 +337,15 @@ class Jamaah extends CI_Controller
         } else {
             $this->Jamaah_model->edit_remaja($id);
             $this->session->set_flashdata('message', 'Di Edit');
-            redirect('admin/jamaah/remajamasjid');
+            redirect('remaja_masjid');
         }
     }
 
     public function delete_remajamasjid($id)
     {
+        $id = decrypt_url($id);
         $this->Jamaah_model->deleteRemaja($id);
         $this->session->set_flashdata('message', 'Di Hapus');
-        redirect('admin/jamaah/remajamasjid');
+        redirect('remaja_masjid');
     }
 }

@@ -23,7 +23,7 @@
                     </li>
                 </ul>
             </div>
-            <div class="page-category">Inner page content goes here</div>
+            <!-- <div class="page-category">Inner page content goes here</div> -->
 
             <!-- start card -->
             <div class="row">
@@ -195,7 +195,7 @@
                 <div class="col-md-6">
                     <div class="card">
                         <div class="card-header">
-                            <div class="card-title">Grafik Bulanan Pemasukan & Pengeluaran Kas</div>
+                            <div class="card-title">Grafik Rata-rata Kas Bulanan Tahun <?= date('Y') ?></div>
                         </div>
                         <div class="card-body">
                             <div class="row py-4 px-4">
@@ -223,6 +223,19 @@
                     </div>
                 </div>
 
+                <!-- <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-title">Line Chart</div>
+                        </div>
+                        <div class="card-body">
+                            <div class="chart-container">
+                                <canvas id="lineChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+
                 <div class="col-md-6">
                     <div class="card">
                         <div class="card-header">
@@ -236,6 +249,7 @@
                     </div>
                 </div>
 
+
             </div>
             <!-- end total incame -->
 
@@ -246,12 +260,12 @@
                 var mytotalIncomeChart = new Chart(totalIncomeChart, {
                     type: 'bar',
                     data: {
-                        labels: ["S", "M", "T", "W", "T", "F", "S", "S", "M", "T"],
+                        labels: ["Jan", "Feb", "Mar", "Apr", "Mei", "Jun", "Jul", "Ags", "sep", "Okt", "Nov", "Des"],
                         datasets: [{
                             label: "Total Income",
                             backgroundColor: '#ff9e27',
                             borderColor: 'rgb(23, 125, 255)',
-                            data: [6, 4, 9, 5, 4, 6, 4, 3, 8, 10],
+                            data: ['<?= $jan['total1'] ?>', '<?= $Feb['total2'] ?>', '<?= $Mar['total3'] ?>', '<?= $Apr['total4'] ?>', '<?= $Mei['total5'] ?>', '<?= $Jun['total6'] ?>', '<?= $Jul['total7'] ?>', '<?= $Aug['total8'] ?>', '<?= $Sep['total9'] ?>', '<?= $Okt['total10'] ?>', '<?= $Nov['total11'] ?>', '<?= $Des['total12'] ?>'],
                         }],
                     },
                     options: {
@@ -280,6 +294,59 @@
                     }
                 });
             </script>
+            <!-- Chart Kas Mingguah -->
+            <script>
+                var lineChart = document.getElementById('lineChart').getContext('2d');
+
+                var myLineChart = new Chart(lineChart, {
+                    type: 'line',
+                    data: {
+                        labels: ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"],
+                        datasets: [{
+                            label: "Active Users",
+                            borderColor: "#1d7af3",
+                            pointBorderColor: "#FFF",
+                            pointBackgroundColor: "#1d7af3",
+                            pointBorderWidth: 2,
+                            pointHoverRadius: 4,
+                            pointHoverBorderWidth: 1,
+                            pointRadius: 4,
+                            backgroundColor: 'transparent',
+                            fill: true,
+                            borderWidth: 2,
+                            data: [542, 480, 430, 550, 530, 453, 380]
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        legend: {
+                            position: 'bottom',
+                            labels: {
+                                padding: 10,
+                                fontColor: '#1d7af3',
+                            }
+                        },
+                        tooltips: {
+                            bodySpacing: 4,
+                            mode: "nearest",
+                            intersect: 0,
+                            position: "nearest",
+                            xPadding: 10,
+                            yPadding: 10,
+                            caretPadding: 10
+                        },
+                        layout: {
+                            padding: {
+                                left: 15,
+                                right: 15,
+                                top: 15,
+                                bottom: 15
+                            }
+                        }
+                    }
+                });
+            </script>
             <!-- script grafik jemaah -->
             <script>
                 var pieChart = document.getElementById('pieChart').getContext('2d')
@@ -287,7 +354,7 @@
                     type: 'pie',
                     data: {
                         datasets: [{
-                            data: [50, 35, 15, 20, 10],
+                            data: ['<?= $imam ?>', '<?= $khatib ?>', '<?= $muazin ?>', '<?= $pengurus ?>', '<?= $remajamasjid ?>'],
                             backgroundColor: ["#1d7af3", "#f3545d", "#fdaf4b", "#3ba867", "#687d4d"],
                             borderWidth: 0
                         }],
@@ -322,5 +389,6 @@
                     }
                 })
             </script>
+
 
         </div>

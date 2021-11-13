@@ -32,7 +32,7 @@
                     <a class="navbar-brand d-flex align-items-center" href="<?= base_url('home') ?>"><span><i class=""></i></span><span>SISI - MASJID <small>Darussalam Sidomulyo Sleman</small></span></a>
                 </div>
 
-                <div class="col-md-4 d-flex topper mb-md-0 mb-2 align-items-center">
+                <!-- <div class="col-md-4 d-flex topper mb-md-0 mb-2 align-items-center">
                     <div class="icon d-flex justify-content-center align-items-center">
                         <span class="fa fa-phone"></span>
                     </div>
@@ -40,7 +40,7 @@
                         <a href="https://api.whatsapp.com/send?phone=628123456789" target="blank_" class="con"><span>Telepon : </span> <span>+62 234 456 78910</span></a>
 
                     </div>
-                </div>
+                </div> -->
                 <div class="col-md-4 d-flex topper mb-md-0 align-items-center">
                     <div class="icon d-flex justify-content-center align-items-center"><span class="fa fa-map-marker"></span>
                     </div>

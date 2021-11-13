@@ -53,19 +53,50 @@ class Kas_masjid extends CI_Controller
     public function index()
     {
         $data['user'] = $this->db->get_where('tb_pengguna', ['username' => $this->session->userdata('username')])->row_array();
-        $data['tampilpemasukan'] = $this->Kas_model->getAllPemasukan();
+
         $data['totalpemasukan'] = $this->Kas_model->getTotalPemasukan();
         $data['infaq'] = $this->Kas_model->countInfaq();
         $data['zakat'] = $this->Kas_model->countZakat();
         $data['wakaf'] = $this->Kas_model->countWakaf();
         $data['shadaqah'] = $this->Kas_model->countShadaqah();
         $data['isilazis'] = ['infaq', 'shadaqah', 'wakaf', 'zakat'];
+        $level = $this->session->userdata('level');
 
-        $this->load->view('templates/admin_header');
-        $this->load->view('templates/admin_topbar');
-        $this->load->view('templates/admin_sidebar', $data);
-        $this->load->view('admin/kas_masjid/v_pemasukan', $data);
-        $this->load->view('templates/admin_footer', $data);
+        $this->form_validation->set_rules('tgl1', 'Tgl1', 'required');
+        $this->form_validation->set_rules('tgl2', 'Tgl2', 'required');
+
+        if ($this->form_validation->run() == false) {
+            $data['tampilpemasukan'] = $this->Kas_model->getAllPemasukan();
+            if ($level == 'administrator') {
+                $this->load->view('templates/admin_header');
+                $this->load->view('templates/admin_topbar');
+                $this->load->view('templates/admin_sidebar', $data);
+                $this->load->view('admin/kas_masjid/v_pemasukan', $data);
+                $this->load->view('templates/admin_footer', $data);
+            } else {
+                $this->load->view('templates/admin_header');
+                $this->load->view('templates/admin_topbar');
+                $this->load->view('templates/bendahara_sidebar', $data);
+                $this->load->view('admin/kas_masjid/v_pemasukan', $data);
+                $this->load->view('templates/admin_footer', $data);
+            }
+        } else {
+            $data['tampilpemasukan'] = $this->Kas_model->cariKasMasukByDate();
+
+            if ($level == 'administrator') {
+                $this->load->view('templates/admin_header');
+                $this->load->view('templates/admin_topbar');
+                $this->load->view('templates/admin_sidebar', $data);
+                $this->load->view('admin/kas_masjid/v_pemasukan', $data);
+                $this->load->view('templates/admin_footer', $data);
+            } else {
+                $this->load->view('templates/admin_header');
+                $this->load->view('templates/admin_topbar');
+                $this->load->view('templates/bendahara_sidebar', $data);
+                $this->load->view('admin/kas_masjid/v_pemasukan', $data);
+                $this->load->view('templates/admin_footer', $data);
+            }
+        }
     }
 
     public function tambah_pemasukan()
@@ -84,12 +115,21 @@ class Kas_masjid extends CI_Controller
         $this->form_validation->set_rules('masuk', 'Masuk', 'trim|required');
         $this->form_validation->set_rules('lazis', 'Lazis', 'trim|required');
         if ($this->form_validation->run() == false) {
+            $level = $this->session->userdata('level');
+            if ($level == 'administrator') {
+                $this->load->view('templates/admin_header');
+                $this->load->view('templates/admin_topbar');
+                $this->load->view('templates/admin_sidebar', $data);
+                $this->load->view('admin/kas_masjid/v_pemasukan', $data);
+                $this->load->view('templates/admin_footer', $data);
+            } else {
 
-            $this->load->view('templates/admin_header');
-            $this->load->view('templates/admin_topbar');
-            $this->load->view('templates/admin_sidebar', $data);
-            $this->load->view('admin/kas_masjid/v_pemasukan', $data);
-            $this->load->view('templates/admin_footer');
+                $this->load->view('templates/admin_header');
+                $this->load->view('templates/admin_topbar');
+                $this->load->view('templates/bendahara_sidebar', $data);
+                $this->load->view('admin/kas_masjid/v_pemasukan', $data);
+                $this->load->view('templates/admin_footer', $data);
+            }
         } else {
             $this->Kas_model->addPemasukan();
             $this->session->set_flashdata('message', 'Di tambahkan');
@@ -97,16 +137,16 @@ class Kas_masjid extends CI_Controller
         }
     }
 
-    public function edit_pemasukan($id)
+    public function edit_pemasukan($unique_code)
     {
-        $this->Kas_model->editPemasukan($id);
+        $this->Kas_model->editPemasukan($unique_code);
         $this->session->set_flashdata('message', 'Di Edit');
         redirect('admin/kas_masjid');
     }
 
-    public function delete_pemasukan($id)
+    public function delete_pemasukan($unique_code)
     {
-        $this->Kas_model->deletePemasukan($id);
+        $this->Kas_model->deletePemasukan($unique_code);
         $this->session->set_flashdata('message', 'Di Hapus');
         redirect('admin/kas_masjid');
     }
@@ -115,19 +155,49 @@ class Kas_masjid extends CI_Controller
     {
 
         $data['user'] = $this->db->get_where('tb_pengguna', ['username' => $this->session->userdata('username')])->row_array();
-        $data['tampilpengeluaran'] = $this->Kas_model->getAllPengeluaran();
+
         $data['totalpengeluaran'] = $this->Kas_model->getTotalPengeluaran();
         $data['infaq'] = $this->Kas_model->countInfaq();
         $data['zakat'] = $this->Kas_model->countZakat();
         $data['wakaf'] = $this->Kas_model->countWakaf();
         $data['shadaqah'] = $this->Kas_model->countShadaqah();
         $data['isilazis'] = ['infaq', 'shadaqah', 'wakaf', 'zakat'];
+        $level = $this->session->userdata('level');
 
-        $this->load->view('templates/admin_header');
-        $this->load->view('templates/admin_topbar');
-        $this->load->view('templates/admin_sidebar', $data);
-        $this->load->view('admin/kas_masjid/v_pengeluaran', $data);
-        $this->load->view('templates/admin_footer', $data);
+        $this->form_validation->set_rules('tgl1', 'Tgl1', 'required');
+        $this->form_validation->set_rules('tgl2', 'Tgl2', 'required');
+
+        if ($this->form_validation->run() == false) {
+            $data['tampilpengeluaran'] = $this->Kas_model->getAllPengeluaran();
+            if ($level == 'administrator') {
+                $this->load->view('templates/admin_header');
+                $this->load->view('templates/admin_topbar');
+                $this->load->view('templates/admin_sidebar', $data);
+                $this->load->view('admin/kas_masjid/v_pengeluaran', $data);
+                $this->load->view('templates/admin_footer', $data);
+            } else {
+                $this->load->view('templates/admin_header');
+                $this->load->view('templates/admin_topbar');
+                $this->load->view('templates/bendahara_sidebar', $data);
+                $this->load->view('admin/kas_masjid/v_pengeluaran', $data);
+                $this->load->view('templates/admin_footer', $data);
+            }
+        } else {
+            $data['tampilpengeluaran'] = $this->Kas_model->cariKasKeluarByDate();
+            if ($level == 'administrator') {
+                $this->load->view('templates/admin_header');
+                $this->load->view('templates/admin_topbar');
+                $this->load->view('templates/admin_sidebar', $data);
+                $this->load->view('admin/kas_masjid/v_pengeluaran', $data);
+                $this->load->view('templates/admin_footer', $data);
+            } else {
+                $this->load->view('templates/admin_header');
+                $this->load->view('templates/admin_topbar');
+                $this->load->view('templates/bendahara_sidebar', $data);
+                $this->load->view('admin/kas_masjid/v_pengeluaran', $data);
+                $this->load->view('templates/admin_footer', $data);
+            }
+        }
     }
 
     public function tambah_pengeluaran()
@@ -152,17 +222,76 @@ class Kas_masjid extends CI_Controller
         }
     }
 
-    public function edit_pengeluaran($id)
+    public function edit_pengeluaran($unique_code)
     {
-        $this->Kas_model->editPengeluaran($id);
+        $this->Kas_model->editPengeluaran($unique_code);
         $this->session->set_flashdata('message', 'Di Edit');
         redirect('admin/kas_masjid/pengeluaran');
     }
 
-    public function delete_pengeluaran($id)
+    public function delete_pengeluaran($unique_code)
     {
-        $this->Kas_model->deletePengeluaran($id);
+        $this->Kas_model->deletePengeluaran($unique_code);
         $this->session->set_flashdata('message', 'Di Hapus');
         redirect('admin/kas_masjid/pengeluaran');
+    }
+
+    public function rekap()
+    {
+        $data['user'] = $this->db->get_where('tb_pengguna', ['username' => $this->session->userdata('username')])->row_array();
+        $level = $this->session->userdata('level');
+        $this->form_validation->set_rules('tgl1', 'Tgl1', 'required');
+        $this->form_validation->set_rules('tgl2', 'Tgl2', 'required');
+
+        if ($this->form_validation->run() == false) {
+            if ($level == 'administrator') {
+                $this->load->view('templates/admin_header');
+                $this->load->view('templates/admin_topbar');
+                $this->load->view('templates/admin_sidebar', $data);
+                $this->load->view('admin/rekap/v_rekap');
+                $this->load->view('templates/admin_footer', $data);
+            } else {
+                $this->load->view('templates/admin_header');
+                $this->load->view('templates/admin_topbar');
+                $this->load->view('templates/bendahara_sidebar', $data);
+                $this->load->view('admin/rekap/v_rekap');
+                $this->load->view('templates/admin_footer', $data);
+            }
+        } else {
+
+            if ($level == 'administrator') {
+                $this->load->view('templates/admin_header');
+                $this->load->view('templates/admin_topbar');
+                $this->load->view('templates/admin_sidebar', $data);
+                $this->load->view('admin/rekap/v_rekap');
+                $this->load->view('templates/admin_footer', $data);
+            } else {
+                $this->load->view('templates/admin_header');
+                $this->load->view('templates/admin_topbar');
+                $this->load->view('templates/bendahara_sidebar', $data);
+                $this->load->view('admin/rekap/v_rekap');
+                $this->load->view('templates/admin_footer', $data);
+            }
+        }
+    }
+
+    public function print_kas()
+    {
+        $data['total'] = $this->Kas_model->getSaldo();
+        $data['totmasuk'] = $this->Kas_model->getTotalPemasukan();
+        $data['totkeluar'] = $this->Kas_model->getTotalPengeluaran();
+        $data['rekap'] = $this->Kas_model->getAllKas();
+        $data['rekapperiode'] = $this->Kas_model->getAllKasPeriode();
+        $this->load->view('admin/rekap/v_rekapsemua', $data);
+    }
+    public function print_kasperiode()
+    {
+        $data['tgl1'] = $this->input->post('tgl1');
+        $data['tgl2'] = $this->input->post('tgl2');
+        $data['total'] = $this->Kas_model->getSaldoPeriode();
+        $data['totmasuk'] = $this->Kas_model->getTotalMasukPeriode();
+        $data['totkeluar'] = $this->Kas_model->getTotalKeluarPeriode();
+        $data['rekapperiode'] = $this->Kas_model->getAllKasPeriode();
+        $this->load->view('admin/rekap/v_rekapperiode', $data);
     }
 }

@@ -55,6 +55,6 @@ class User_model extends CI_model
 
     public function deleteUser($id)
     {
-        $this->db->delete('id', ['id' => $id]);
+        $this->db->delete('tb_pengguna', ['id' => $id]);
     }
 }

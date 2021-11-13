@@ -27,82 +27,6 @@
 
             <!-- Row Card No Padding -->
             <div class="row row-card-no-pd">
-                <div class="col-sm-6 col-md-3">
-                    <div class="card card-stats card-round">
-                        <div class="card-body ">
-                            <div class="row">
-                                <div class="col-5">
-                                    <div class="icon-big text-center">
-                                        <i class="flaticon-credit-card text-warning"></i>
-                                    </div>
-                                </div>
-                                <div class="col-7 col-stats">
-                                    <div class="numbers">
-                                        <p class="card-category">Jumlah Infaq Masuk</p>
-                                        <h4 class="card-title"><?= $infaq['clazis'] ?></h4>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-md-3">
-                    <div class="card card-stats card-round">
-                        <div class="card-body ">
-                            <div class="row">
-                                <div class="col-5">
-                                    <div class="icon-big text-center">
-                                        <i class="flaticon-credit-card-1 text-success"></i>
-                                    </div>
-                                </div>
-                                <div class="col-7 col-stats">
-                                    <div class="numbers">
-                                        <p class="card-category">Jumlah Zakat Masuk</p>
-                                        <h4 class="card-title"><?= $zakat['clazis'] ?></h4>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-7 col-md-3">
-                    <div class="card card-stats card-round">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-3">
-                                    <div class="icon-big text-center">
-                                        <i class="flaticon-credit-card text-danger"></i>
-                                    </div>
-                                </div>
-                                <div class="col-8 col-stats">
-                                    <div class="numbers">
-                                        <p class="card-category">Jumlah Shadaqah Masuk</p>
-                                        <h4 class="card-title"><?= $shadaqah['clazis'] ?></h4>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-md-3">
-                    <div class="card card-stats card-round">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-3">
-                                    <div class="icon-big text-center">
-                                        <i class="flaticon-credit-card-1 text-primary"></i>
-                                    </div>
-                                </div>
-                                <div class="col-8 col-stats">
-                                    <div class="numbers">
-                                        <p class="card-category">Jumlah Wakaf Masuk</p>
-                                        <h4 class="card-title"><?= $wakaf['clazis'] ?></h4>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
                 <div class="col-sm-9 col-md-8">
                     <div class="card card-stats card-round">
                         <div class="card-body">
@@ -128,6 +52,36 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="form-group form-inline">
+                                        <form class="form-group" method="POST" action="<?= base_url('admin/kas_masjid') ?>">
+                                            <label for="inlineinput" class="col-md-3 col-form-label">Tanggal Awal</label>
+                                            <div class="col-md-9 p-0">
+                                                <input type="date" name="tgl1" class="form-control input-full" id="tgl1" required>
+                                            </div>
+                                            <label for="inlineinput" class="col-md-3 col-form-label">Tanggal Akhir</label>
+                                            <div class="col-md-9 p-0">
+                                                <input type="date" name="tgl2" class="form-control input-full" id="tgl2" required>
+                                            </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="card-action px-6 py-2">
+                                <button class="btn btn-primary">Cari</button>
+                                <a href="<?= base_url('pemasukan') ?>" class="btn btn-primary">Tampil Semua</a>
+                            </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
                             <div class="d-flex align-items-center">
                                 <div class="card-title"><span><i class="fas fa-table"></i></span> Data Pemasukan</div>
                                 <button data-toggle="modal" data-target="#tambahPemasukan" class="btn btn-primary btn-round ml-auto">
@@ -139,14 +93,14 @@
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
-                                <table id="basic-datatables2" class="display table table-striped table-hover text-white">
+                                <table id="basic-datatables" class="display table table-striped table-hover text-white">
                                     <thead>
                                         <tr>
                                             <th>No</th>
                                             <th>Tanggal</th>
-                                            <th>Keterangan</th>
-                                            <th>Jumlah</th>
                                             <th>Jenis Lazis</th>
+                                            <th>Jumlah</th>
+                                            <th>Keterangan</th>
                                             <th style="width: 10%">Action</th>
                                         </tr>
                                     </thead>
@@ -154,9 +108,9 @@
                                         <tr>
                                             <th>No</th>
                                             <th>Tanggal</th>
-                                            <th>Keterangan</th>
-                                            <th>Jumlah</th>
                                             <th>Jenis Lazis</th>
+                                            <th>Jumlah</th>
+                                            <th>Keterangan</th>
                                             <th style="width: 10%">Action</th>
                                         </tr>
                                     </tfoot>
@@ -167,16 +121,16 @@
                                                     <?= array_search($tp, $tampilpemasukan) + 1; ?>
                                                 </td>
                                                 <?php $tgl = $tp['tgl_km'] ?>
-                                                <td><?= date("d-M-Y", strtotime($tgl)) ?></td>
-                                                <td><?= $tp['keterangan']; ?></td>
-                                                <td><?= "Rp " . rupiah($tp['masuk']); ?></td>
+                                                <td><?= date_indo($tgl) ?></td>
                                                 <td><?= $tp['lazis']; ?></td>
+                                                <td><?= "Rp " . rupiah($tp['masuk']); ?></td>
+                                                <td><?= $tp['keterangan']; ?></td>
                                                 <td>
                                                     <div class="form-button-action">
-                                                        <a href="" data-toggle="modal" data-target="#editpemasukan<?= $tp['id'] ?>" class="btn btn-link btn-primary btn-lg" data-original-title="Edit Data">
+                                                        <a href="" data-toggle="modal" data-target="#editpemasukan<?= $tp['unique_code'] ?>" class="btn btn-link btn-primary btn-lg" data-original-title="Edit Data">
                                                             <i class="fa fa-edit"></i>
                                                         </a>
-                                                        <a href="<?= base_url('admin/kas_masjid/delete_kasmasuk/') . $tp['id']; ?>" data-toggle="tooltip" class="btn btn-link btn-danger tombol-hapus" data-original-title="Hapus">
+                                                        <a href="<?= base_url('admin/kas_masjid/delete_kasmasuk/') . $tp['unique_code']; ?>" data-toggle="tooltip" class="btn btn-link btn-danger tombol-hapus" data-original-title="Hapus">
                                                             <i class="fa fa-times"></i>
                                                         </a>
 
@@ -206,6 +160,7 @@
                     </div>
                     <div class="modal-body">
                         <form action="<?= base_url('admin/kas_masjid/tambah_pemasukan') ?>" method="POST">
+                            <input type="hidden" name="unique_code" value="<?= strtolower(random_string('alnum', 32)) ?>">
                             <div class="form-group">
                                 <div class="input-icon">
                                     <span class="input-icon-addon">
@@ -285,7 +240,7 @@
 
         <?php foreach ($tampilpemasukan as $tp) : ?>
             <!-- Modal Edit Pemasukan-->
-            <div class="modal fade" id="editpemasukan<?= $tp['id'] ?>" tabindex="-1" role="dialog" aria-labelledby="editpemasukan" aria-hidden="true">
+            <div class="modal fade" id="editpemasukan<?= $tp['unique_code'] ?>" tabindex="-1" role="dialog" aria-labelledby="editpemasukan" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content card">
                         <div class="modal-header">
@@ -295,13 +250,14 @@
                             </button>
                         </div>
                         <div class="modal-body">
-                            <form action="<?= base_url('admin/kas_masjid/edit_pemasukan/') . $tp['id'] ?>" method="POST">
+                            <form action="<?= base_url('admin/kas_masjid/edit_pemasukan/') . $tp['unique_code'] ?>" method="POST">
+                                <input type="hidden" name="unique_code" value="<?= strtolower(random_string('alnum', 32)) ?>">
                                 <div class="form-group">
                                     <div class="input-icon">
                                         <span class="input-icon-addon">
                                             <i class="icon-calendar"></i>
                                         </span>
-                                        <input id="tgl_km" name="tgl_km" type="date" class="form-control" value="<?= $tp['tgl_km'] ?>" required>
+                                        <input name="tgl_km" type="date" class="form-control" value="<?= $tp['tgl_km'] ?>" required>
                                     </div>
                                 </div>
 
@@ -310,7 +266,7 @@
                                         <span class="input-icon-addon">
                                             <i class="icon-book-open"></i>
                                         </span>
-                                        <input id="keterangan" name="keterangan" type="text" class="form-control" placeholder="Keterangan" value="<?= $tp['keterangan'] ?>" required>
+                                        <input name="keterangan" type="text" class="form-control" placeholder="Keterangan" value="<?= $tp['keterangan'] ?>" required>
                                     </div>
                                 </div>
 
@@ -319,12 +275,12 @@
                                         <span class="input-icon-addon">
                                             <i class="fas fa-money-check-alt"></i>
                                         </span>
-                                        <input name="masuk" id="masuk" type="text" class="form-control" placeholder="Jumlah Pemasukan" value="Rp <?= number_format(($tp['masuk']), 0, '', '.') ?>" required>
+                                        <input name="masuk" type="text" class="form-control" placeholder="Jumlah Pemasukan" value="Rp <?= number_format(($tp['masuk']), 0, '', '.') ?>" required>
                                     </div>
                                 </div>
 
                                 <div class="form-group form-floating-label">
-                                    <select id="lazis" name="lazis" class="form-control input-solid" id="selectFloatingLabel2" required>
+                                    <select name="lazis" class="form-control input-solid" required>
                                         <?php foreach ($isilazis as $il) : ?>
                                             <?php if ($il == $tp['lazis']) : ?>
                                                 <option value="<?= $il; ?>" selected><?= $il; ?></option>
@@ -339,7 +295,7 @@
                         </div>
                         <div class="card-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="submit" class="btn btn-primary">Tambah</button>
+                            <button type="submit" class="btn btn-primary">Edit</button>
                         </div>
                         </form>
                     </div>

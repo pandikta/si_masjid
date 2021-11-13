@@ -19,18 +19,13 @@
                     <div class="collapse in" id="collapseExample">
                         <ul class="nav">
                             <li>
-                                <a href="#profile">
-                                    <span class="link-collapse">My Profile</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#edit">
+                                <a href="<?= base_url('profile') ?>">
                                     <span class="link-collapse">Edit Profile</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="#settings">
-                                    <span class="link-collapse">Settings</span>
+                                <a href="<?= base_url('katasandi') ?>">
+                                    <span class="link-collapse">Ubah Kata Sandi</span>
                                 </a>
                             </li>
                         </ul>
@@ -38,15 +33,15 @@
                 </div>
             </div>
             <ul class="nav nav-primary">
-                <li class="nav-item">
+                <li class="nav-item <?= activate_menu('dashboard') ?>">
                     <a href="<?= base_url('admin/dashboard'); ?>">
                         <i class="fas fa-home"></i>
                         <p>Dashboard</p>
                     </a>
                 </li>
 
-                <li class="nav-item">
-                    <a href="<?= base_url('admin/pengguna') ?>">
+                <li class="nav-item <?= activate_menu('pengguna') ?>">
+                    <a href="<?= base_url('pengguna') ?>">
                         <i class="fas fa-user"></i>
                         <p>Managemen Pengguna</p>
                     </a>
@@ -59,7 +54,7 @@
                     <h4 class="text-section">Components</h4>
                 </li>
 
-                <li class="nav-item">
+                <li class="nav-item <?= activate_menu('jamaah') ?>">
                     <a data-toggle="collapse" href="#base">
                         <i class="fas fa-users"></i>
                         <p>Data Jamaah</p>
@@ -73,22 +68,22 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="<?= base_url('admin/jamaah/khatib') ?>">
+                                <a href="<?= base_url('khatib') ?>">
                                     <span class="sub-item">Khatib</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="<?= base_url('admin/jamaah/pengurus') ?>">
+                                <a href="<?= base_url('pengurus') ?>">
                                     <span class="sub-item">Pengurus</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="<?= base_url('admin/jamaah/muazin') ?>">
+                                <a href="<?= base_url('muazin') ?>">
                                     <span class="sub-item">Muazin</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="<?= base_url('admin/jamaah/remajamasjid') ?>">
+                                <a href="<?= base_url('remaja_masjid') ?>">
                                     <span class="sub-item">Remaja Masjid</span>
                                 </a>
                             </li>
@@ -97,7 +92,7 @@
                     </div>
                 </li>
 
-                <li class="nav-item">
+                <li class="nav-item <?= activate_menu('kas_masjid') ?>">
                     <a data-toggle="collapse" href="#sidebarLayouts">
                         <i class="fas fa-money-check-alt"></i>
                         <p>Kas Masjid</p>
@@ -116,7 +111,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="#">
+                                <a href="<?= base_url('rekap') ?>">
                                     <span class="sub-item">Rekap</span>
                                 </a>
                             </li>
@@ -124,83 +119,68 @@
                         </ul>
                     </div>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item <?= activate_menu('qurban') ?>">
                     <a data-toggle="collapse" href="#forms">
-                        <i class="icon-list"></i>
-                        <p>Kegiatan</p>
+                        <i class="fas fa-weight"></i>
+                        <p>Qurban</p>
                         <span class="caret"></span>
                     </a>
                     <div class="collapse" id="forms">
                         <ul class="nav nav-collapse">
+                            <!-- <li>
+                                <a href="<?= base_url('#') ?>">
+                                    <span class="sub-item">Data Warga</span>
+                                </a>
+                            </li> -->
                             <li>
-                                <a href="">
-                                    <span class="sub-item">Daftar Kegiatan</span>
+                                <a href="<?= base_url('qurban') ?>">
+                                    <span class="sub-item">Hitung Qurban</span>
                                 </a>
                             </li>
                         </ul>
                     </div>
                 </li>
-                <li class="nav-item">
-                    <a data-toggle="collapse" href="#tables">
-                        <i class="fas fa-table"></i>
-                        <p>Tables</p>
+                <li class="nav-item <?= activate_menu('kegiatan') ?>">
+                    <a data-toggle="collapse" href="#kegiatan">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                        <p>Kegiatan</p>
                         <span class="caret"></span>
                     </a>
-                    <div class="collapse" id="tables">
+                    <div class="collapse" id="kegiatan">
                         <ul class="nav nav-collapse">
                             <li>
-                                <a href="tables/tables.html">
-                                    <span class="sub-item">Basic Table</span>
+                                <a href="<?= base_url('pengajian') ?>">
+                                    <span class="sub-item">Pengajian</span>
+                                </a>
+                            </li>
+                            <!-- <li>
+                                <a href="<?= base_url('admin/kegiatan') ?>">
+                                    <span class="sub-item">TPA</span>
+                                </a>
+                            </li> -->
+                            <li>
+                                <a href="<?= base_url('tugasjumat') ?>">
+                                    <span class="sub-item">Petugas Jumat</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="tables/datatables.html">
-                                    <span class="sub-item">Datatables</span>
+                                <a href="<?= base_url('galeri') ?>">
+                                    <span class="sub-item">Foto Kegiatan</span>
                                 </a>
                             </li>
                         </ul>
                     </div>
                 </li>
-                <li class="nav-item">
-                    <a data-toggle="collapse" href="#maps">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <p>Maps</p>
-                        <span class="caret"></span>
+                <li class="nav-item <?= activate_menu('kotaksaran') ?>">
+                    <a href="<?= site_url('kotaksaran') ?>">
+                        <i class="fas fa-envelope"></i>
+                        <p>Kotak Saran</p>
                     </a>
-                    <div class="collapse" id="maps">
-                        <ul class="nav nav-collapse">
-                            <li>
-                                <a href="maps/jqvmap.html">
-                                    <span class="sub-item">JQVMap</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
-                <li class="nav-item">
-                    <a data-toggle="collapse" href="#charts">
-                        <i class="far fa-chart-bar"></i>
-                        <p>Charts</p>
-                        <span class="caret"></span>
-                    </a>
-                    <div class="collapse" id="charts">
-                        <ul class="nav nav-collapse">
-                            <li>
-                                <a href="charts/charts.html">
-                                    <span class="sub-item">Chart Js</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="charts/sparkline.html">
-                                    <span class="sub-item">Sparkline</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
                 </li>
 
+
                 <li class="nav-item">
-                    <a href="<?= site_url('admin/auth/logout') ?>">
+                    <a href="<?= site_url('logout') ?>">
                         <i class="icon-logout"></i>
                         <p>Logout</p>
                     </a>

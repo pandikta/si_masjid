@@ -24,36 +24,17 @@
     </div>
 </footer>
 </div>
-<script src="<?= base_url('assets/vendor_template_admin') ?>/js/core/jquery.3.2.1.min.js"></script>
+
 
 <!-- script datatabel -->
 <script>
     $(document).ready(function() {
         $('#basic-datatables').DataTable({});
     });
-
-    // tabel pemasukan dengan serverside
-    // $(document).ready(function() {
-
-    //     $('#basic-datatables2').DataTable({
-    //         "processing": true,
-    //         "serverSide": true,
-    //         "ajax": {
-    //             "url": "<?= site_url('admin/kas_masjid/get_ajax_pemasukan') ?>",
-    //             "type": "POST"
-    //         },
-    //         "columnDefs": [{
-    //             "targets": 5,
-    //             "data": null,
-    //             "orderable": false,
-    //             "defaultContent": "<div class='form-button-action'><a href='' data-toggle='modal' data-target='#editpemasukan' class='btn btn-link btn-primary btn-lg'><i class='fa fa-edit'></i></a> <a  href='' class='btn btn-link btn-danger btn-lg tombol-hapus'><i class='fa fa-times'></i></a> </div>"
-    //         }]
-    //     });
-    // });
 </script>
 
 <!-- script show password -->
-<script type="text/javascript">
+<script script type="text/javascript">
     function change() {
         var x = document.getElementById('password').type;
 
@@ -92,6 +73,8 @@
 <script src="<?= base_url('assets/vendor_template_admin') ?>/js/plugin/chart-circle/circles.min.js"></script>
 
 <!-- Datatables -->
+<!-- <script src="<?= base_url('assets/vendor_template_admin') ?>/js/core/jquery.3.2.1.min.js"></script> -->
+
 <script src="<?= base_url('assets/vendor_template_admin') ?>/js/plugin/datatables/datatables.min.js"></script>
 
 <!-- Bootstrap Notify -->

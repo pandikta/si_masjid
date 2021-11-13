@@ -56,7 +56,7 @@
                                         <span class="input-icon-addon">
                                             <i class="fa fa-key"></i>
                                         </span>
-                                        <input type="password" name="password" class="form-control" id="password" placeholder="Password" required>
+                                        <input type="password" name="password" class="form-control" id="password" placeholder="Password" required minlength="6">
                                         <?= form_error('password', '<small class="text-danger pl-3">', '</small>'); ?>
                                     </div>
                                     <div class="form-check">
@@ -68,17 +68,17 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label class="col-sm-2 col-form-label">Level</label>
-                                    <select name=" level" class="form-control" id="exampleFormControlSelect1">
-                                        <option>Pilih Level</option>
-                                        <option>Administrator</option>
-                                        <option>Bendahara</option>
+                                    <label class="col-sm-2 col-form-label">Divisi</label>
+                                    <select name=" level" class="form-control" id="exampleFormControlSelect1" required>
+                                        <option selected value="">Pilih</option>
+                                        <option value="pengurus">Pengurus</option>
+                                        <option value="bendahara">Bendahara</option>
                                     </select>
                                     <?= form_error('level', '<small class="text-danger pl-3">', '</small>'); ?>
                                 </div>
                                 <div class="card-action">
                                     <button type="submit" class="btn btn-primary">Tambah</button>
-                                    <a href="<?= base_url('admin/pengguna'); ?>" type="button" class="btn btn-danger">Cancel</a>
+                                    <a href="<?= base_url('pengguna'); ?>" type="button" class="btn btn-danger">Cancel</a>
                                 </div>
                             </form>
                         </div>

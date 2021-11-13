@@ -32,7 +32,7 @@
                             <div class="d-flex align-items-center">
                                 <h4 class="card-title">Data Pengurus</h4>
 
-                                <a href="<?= base_url('admin/jamaah/tambah_pengurus') ?>" class="btn btn-primary btn-round ml-auto">
+                                <a href="<?= base_url('tambahpengurus') ?>" class="btn btn-primary btn-round ml-auto">
                                     <i class="fa fa-plus"></i>
                                     Tambah Data Pengurus
                                 </a>
@@ -69,10 +69,10 @@
                                                 <td><?= $ti['no_hp']; ?></td>
                                                 <td>
                                                     <div class="form-button-action">
-                                                        <a href="<?= base_url('admin/jamaah/edit_pengurus/') . $ti['id']; ?>" data-toggle="tooltip" class="btn btn-link btn-primary btn-lg" data-original-title="Edit Data">
+                                                        <a href="<?= base_url('admin/jamaah/edit_pengurus/') . encrypt_url($ti['id']); ?>" data-toggle="tooltip" class="btn btn-link btn-primary btn-lg" data-original-title="Edit Data">
                                                             <i class="fa fa-edit"></i>
                                                         </a>
-                                                        <a href="<?= base_url('admin/jamaah/delete_pengurus/') . $ti['id']; ?>" data-toggle="tooltip" class="btn btn-link btn-danger tombol-hapus" data-original-title="Hapus">
+                                                        <a href="<?= base_url('admin/jamaah/delete_pengurus/') . encrypt_url($ti['id']); ?>" data-toggle="tooltip" class="btn btn-link btn-danger tombol-hapus" data-original-title="Hapus">
                                                             <i class="fa fa-times"></i>
                                                         </a>
 

@@ -53,6 +53,36 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="form-group form-inline">
+                                        <form class="form-group" method="POST" action="<?= base_url('admin/kas_masjid/pengeluaran') ?>">
+                                            <label for="inlineinput" class="col-md-3 col-form-label">Tanggal Awal</label>
+                                            <div class="col-md-9 p-0">
+                                                <input type="date" name="tgl1" class="form-control input-full" id="tgl1" required>
+                                            </div>
+                                            <label for="inlineinput" class="col-md-3 col-form-label">Tanggal Akhir</label>
+                                            <div class="col-md-9 p-0">
+                                                <input type="date" name="tgl2" class="form-control input-full" id="tgl2" required>
+                                            </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="card-action px-6 py-2">
+                                <button class="btn btn-primary">Cari</button>
+                                <a href="<?= base_url('pengeluaran') ?>" class="btn btn-primary text-white">Tampil Semua</a>
+                            </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
                             <div class="d-flex align-items-center">
                                 <div class="card-title"><span><i class="fas fa-table"></i></span> Data Pengeluaran</div>
                                 <button data-toggle="modal" data-target="#tambahPengeluaran" class="btn btn-primary btn-round ml-auto">
@@ -64,7 +94,7 @@
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
-                                <table id="basic-datatables2" class="display table table-striped table-hover text-white">
+                                <table id="basic-datatables" class="display table table-striped table-hover text-white">
                                     <thead>
                                         <tr>
                                             <th>No</th>
@@ -92,19 +122,18 @@
                                                     <?= array_search($tp, $tampilpengeluaran) + 1; ?>
                                                 </td>
                                                 <?php $tgl = $tp['tgl_km'] ?>
-                                                <td><?= date("d-M-Y", strtotime($tgl)) ?></td>
+                                                <td><?= date_indo($tgl) ?></td>
                                                 <td><?= $tp['keterangan']; ?></td>
                                                 <td><?= "Rp " . rupiah($tp['keluar']); ?></td>
                                                 <td><?= $tp['lazis']; ?></td>
                                                 <td>
                                                     <div class="form-button-action">
-                                                        <a href="" data-toggle="modal" data-target="#editpengeluaran<?= $tp['id'] ?>" class="btn btn-link btn-primary btn-lg" data-original-title="Edit Data">
+                                                        <a href="" data-toggle="modal" data-target="#editpengeluaran<?= $tp['unique_code'] ?>" class="btn btn-link btn-primary btn-lg" data-original-title="Edit Data">
                                                             <i class="fa fa-edit"></i>
                                                         </a>
-                                                        <a href="<?= base_url('admin/kas_masjid/delete_pengeluaran/') . $tp['id']; ?>" data-toggle="tooltip" class="btn btn-link btn-danger tombol-hapus" data-original-title="Hapus">
+                                                        <a href="<?= base_url('admin/kas_masjid/delete_pengeluaran/') . $tp['unique_code']; ?>" data-toggle="tooltip" class="btn btn-link btn-danger tombol-hapus" data-original-title="Hapus">
                                                             <i class="fa fa-times"></i>
                                                         </a>
-
                                                     </div>
                                                 </td>
                                             </tr>
@@ -131,6 +160,7 @@
                     </div>
                     <div class="modal-body">
                         <form action="<?= base_url('admin/kas_masjid/tambah_pengeluaran') ?>" method="POST">
+                            <input type="hidden" name="unique_code" value="<?= strtolower(random_string('alnum', 32)) ?>">
                             <div class="form-group">
                                 <div class="input-icon">
                                     <span class="input-icon-addon">
@@ -161,11 +191,7 @@
                             <div class="form-group form-floating-label">
                                 <select name="lazis" class="form-control input-solid" id="selectFloatingLabel2" required>
                                     <option value="">&nbsp;</option>
-                                    <option>Infaq</option>
-                                    <option>Shadaqah</option>
-                                    <option>Wakaf</option>
-                                    <option>Zakat</option>
-
+                                    <option>Pengeluaran</option>
                                 </select>
                                 <label for="selectFloatingLabel2" class="placeholder">Jenis Lazis</label>
                             </div>
@@ -210,7 +236,7 @@
 
         <?php foreach ($tampilpengeluaran as $tp) : ?>
             <!-- Modal Edit pengeluaran-->
-            <div class="modal fade" id="editpengeluaran<?= $tp['id'] ?>" tabindex="-1" role="dialog" aria-labelledby="editpengeluaran" aria-hidden="true">
+            <div class="modal fade" id="editpengeluaran<?= $tp['unique_code'] ?>" tabindex="-1" role="dialog" aria-labelledby="editpengeluaran" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content card">
                         <div class="modal-header">
@@ -220,7 +246,7 @@
                             </button>
                         </div>
                         <div class="modal-body">
-                            <form action="<?= base_url('admin/kas_masjid/edit_pengeluaran/') . $tp['id'] ?>" method="POST">
+                            <form action="<?= base_url('admin/kas_masjid/edit_pengeluaran/') . $tp['unique_code'] ?>" method="POST">
                                 <div class="form-group">
                                     <div class="input-icon">
                                         <span class="input-icon-addon">
@@ -250,13 +276,7 @@
 
                                 <div class="form-group form-floating-label">
                                     <select id="lazis" name="lazis" class="form-control input-solid" id="selectFloatingLabel2" required>
-                                        <?php foreach ($isilazis as $il) : ?>
-                                            <?php if ($il == $tp['lazis']) : ?>
-                                                <option value="<?= $il; ?>" selected><?= $il; ?></option>
-                                            <?php else : ?>
-                                                <option value="<?= $il; ?>"><?= $il; ?></option>
-                                            <?php endif ?>
-                                        <?php endforeach ?>
+                                        <option value="<?= $tp['lazis'] ?>" selected><?= $tp['lazis'] ?></option>
                                     </select>
                                     <label for="selectFloatingLabel2" class="placeholder">Jenis Lazis</label>
                                 </div>
