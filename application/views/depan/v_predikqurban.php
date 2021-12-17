@@ -11,118 +11,115 @@
 </section>
 
 <section class="ftco-section contact-section ftco-no-pb" id="contact-section">
+
+
+
     <div class="container">
-        <div class="flash-saran" data-flashsaran="<?= $this->session->flashdata('message'); ?>"></div>
-        <div class="flash-gagal" data-flashgagal="<?= $this->session->flashdata('flash'); ?>"></div>
-        <div class="row justify-content-center mb-5 pb-3">
-            <div class="col-md-7 heading-section text-center ftco-animate">
-                <h3 class="mb-4">Prediksi Bobot Paket Qurban</h3>
-            </div>
-        </div>
-        <div class="row block-1">
-            <div class="col-md-12">
-                <form action="<?= base_url('saran/tambah_saran') ?>" method="POST" class="p-4 p-md-5 contact-form">
-                    <div class="row">
-
-                        <div class="col-md-12">
-                            <label for="" style="color: black; font-size:14px">Jumlah Sasaran Penerima</label>
-                            <div class="form-group">
-                                <input type="number" class="form-control" id="totalPenerima" placeholder="Jumlah Sasaran Penerima Daging Qurban" onkeyup="hitungQurban();" required>
-                            </div>
-                        </div>
-
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <input type="text" class="form-control" id="hargaSapi" placeholder="Harga 1 Sapi" onkeyup="hitungQurban();" required>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <input type="number" class="form-control" id="jumlahSapi" placeholder="Banyaknya Kelompok Qurban" onkeyup="hitungQurban();" required>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <input type="text" class="form-control" id="totalHargaSapi" placeholder="Total Harga Sapi" onkeyup="hitungQurban();" disabled>
-                            </div>
-                        </div>
-
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <input type="text" class="form-control" id="hargaKambing" placeholder="Harga 1 Kambing" onkeyup="hitungQurban();" required>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <input type="number" class="form-control" id="totalKambing" placeholder="Banyaknya Kambing" onkeyup="hitungQurban();" required>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <input type="text" class="form-control" id="totalHargaKambing" placeholder="Total Harga Kambing" onkeyup="hitungQurban();" disabled>
-                            </div>
-                        </div>
-
-                        <div class="col-md-12">
-                            <label for="" style="color: black; font-size:14px">Total Harga Sapi dan Kambing</label>
-                            <div class="form-group">
-                                <input type="text" class="form-control" id="totalRupiah" placeholder="Total Harga Sapi + Kambing" disabled>
-                            </div>
-                        </div>
-
-                        <div class="col-md-12">
-                            <label for="" style="color: black; font-size:14px">Hak Sohibul</label>
-                            <div class="form-group">
-                                <input type="text" class="form-control" id="hakSohibul" placeholder="Hak Sohibul" disabled>
-                            </div>
-                        </div>
-
-                        <div class="col-md-12">
-                            <label for="" style="color: black; font-size:14px">Setelah diambil Hak Sohibul</label>
-                            <div class="form-group">
-                                <input type="text" class="form-control" id="sisaRupiah" placeholder="Sisa (Rupiah) setelah diambil hak sohibul" disabled>
-                            </div>
-                        </div>
-
-                        <div class="col-md-12">
-                            <label for="" style="color: black; font-size:14px">Total Uang Dibagi Penerima</label>
-                            <div class="form-group">
-                                <input type="text" class="form-control" id="totalRupiahSetelahDiambilSohibul" placeholder="Jumlah Rupiah Qurban (setelah diambil hak sohibul) / Jumlah penerima" disabled>
-                            </div>
-                        </div>
-
-                        <div class="col-md-12">
-                            <label for="" style="color: black; font-size:14px">Asumsi Harga Rata2 Daging Sapi / Kambing Per Kg dipasaran </label>
-                            <div class="form-group">
-                                <input type="text" class="form-control" id="asumsiHarga" placeholder="Asumsi Harga Rata2 Daging Sapi / Kambing Per Kg dipasaran" onkeyup="hitungQurban();" required>
-                            </div>
-                        </div>
-
-                        <div class="col-md-12">
-                            <label for="" style="color: red;">Konversi dari Harga Daging ke Dalam Satuan Kg</label>
-                            <div class="form-group">
-                                <input type="text" class="form-control" id="konversi" placeholder="Konversi dari Harga Daging ke Dalam Satuan Kg" onkeyup="hitungQurban();" disabled>
-                            </div>
-                        </div>
-
-                        <div class="col-md-12">
-                            <label for="" style="color: red;">Kesimpulan : 1 Paket Daging Isinya adalah</label>
-                            <div class="form-group">
-                                <input type="text" class="form-control" id="hasil" placeholder="Kesimpulan : 1 Paket Daging Isinya adalah" onkeyup="hitungQurban();" disabled>
-                            </div>
-                        </div>
-
+        <div class="row">
+            <div class="col-md-12 py-5 pl-md-5">
+                <div class="row justify-content-center mb-4 pt-md-4">
+                    <div class="col-md-7 heading-section text-center ftco-animate">
+                        <h3 class="mb-4">Prediksi Bobot Paket Qurban</h3>
                     </div>
-                </form>
+                    <div class="col-md-12 heading-section ftco-animate">
+                        <div class="card text-center">
+                            <div class="card-header">
+                                <ul class="nav nav-tabs card-header-tabs">
+                                    <li class="nav-item">
+                                        <a class="nav-link active">Harga</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link">Sapi & Lulang</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link disabled">Kambing </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link disabled">Hasil </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="card-body">
+                                <!-- <h5 class="card-title">Special title treatment</h5> -->
+                                <div class="col-md-12 row justify-content-start">
+                                    <div class="form-group">
+                                        <input type="button" value="Tambah Sapi Panitia" name="add" id="add" class="btn btn-success py-2 px-3">
+                                    </div>
+                                    <div class="form-group ml-2">
+                                        <input type="button" value="Tambah Sapi Pribadi" name="add2" id="add2" class="btn btn-success py-2 px-3">
+                                    </div>
+                                </div>
 
+                                <form action="<?= base_url('kurban/tambah_berat') ?>" method="POST" class="p-4 p-md-5 contact-form">
+                                    <div class="form-group">
+                                        <table id="dynamic_field">
+                                            <tr id="row">
+                                                <td class="col-md-6">
+                                                    <input type="text" name="harga[]" class="form-control" placeholder="Harga Pasaran Sapi" required>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                    <hr>
+                                    <div class="form-group">
+                                        <table id="dynamic_field2">
+                                            <tr id="row2">
+                                                <td class="col-md-6">
+                                                    <input type="text" name="harga_panitia[]" class="form-control" placeholder="Harga Pasaran Sapi" required>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                    <div class=" col-md-12">
+                                        <div class="form-group">
+                                            <input type="submit" value="Proses" class="btn btn-primary d-flex justify-content-start">
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-
-
         </div>
     </div>
+
 </section>
 
 <script>
+    $(document).ready(function() {
+        var i = 1;
+        $('#add').click(function() {
+            i++;
+            $('#dynamic_field').append(' <tr id="row' + i + '"><td class="col-md-6"><input type="text" name="harga[]" class="form-control"  placeholder="Harga Pasaran Sapi" required ></td><td class="col-md-1"><button type="button" name="remove" class=" btn btn-danger btn_remove   " id="' + i + '" value="X" >X</button></td></tr>');
+        });
+
+        $(document).on('click', '.btn_remove', function() {
+            var button_id = $(this).attr("id");
+            $('#row' + button_id + '').remove();
+
+        });
+
+    });
+</script>
+<script>
+    $(document).ready(function() {
+        var i = 1;
+        $('#add2').click(function() {
+            i++;
+            $('#dynamic_field2').append(' <tr id="row2' + i + '"><td class="col-md-6"><input type="text" name="harga_panitia[]" class="form-control" placeholder="Harga Pasaran Sapi" required></td><td class="col-md-1"><button type="button" name="remove2" class=" btn btn-danger btn_remove2   " id="' + i + '" value="X" >X</button></td></tr>');
+        });
+
+        $(document).on('click', '.btn_remove2', function() {
+            var button_id = $(this).attr("id");
+            $('#row2' + button_id + '').remove();
+
+        });
+
+    });
+</script>
+
+<!-- <script>
     function hitungQurban() {
 
         var totalPenerima = document.getElementById('totalPenerima').value;
@@ -193,7 +190,6 @@
             sisa = split[0].length % 3,
             rupiah = split[0].substr(0, sisa),
             ribuan = split[0].substr(sisa).match(/\d{3}/gi);
-
         // tambahkan titik jika yang di input sudah menjadi angka ribuan
         if (ribuan) {
             separator = sisa ? '.' : '';
@@ -218,4 +214,4 @@
 
         return angkarev + ' Kg';
     }
-</script>
+</script> -->

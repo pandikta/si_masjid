@@ -22,6 +22,9 @@
     <link rel="stylesheet" href="<?= base_url('assets/vendor_template_home/') ?>css/flaticon.css">
     <link rel="stylesheet" href="<?= base_url('assets/vendor_template_home/') ?>css/style.css">
     <link rel="stylesheet" href="<?= base_url('assets/vendor_template_home/') ?>css/mycss.css">
+    <!-- Wizard Form -->
+    <link rel="stylesheet" href="<?= base_url('assets/vendor_wizard/') ?>wizard.css">
+    <script src="<?= base_url('assets/vendor_template_home/') ?>js/jquery.min.js"></script>
 </head>
 
 <body>

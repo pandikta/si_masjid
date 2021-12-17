@@ -73,9 +73,11 @@
     </svg></div>
 <!-- sweetalert -->
 
+<!-- wizard form -->
+<script src="<?= base_url('assets/vendor_wizard/') ?>wizard.js"></script>
 
 <script src="<?= base_url('assets/vendor_template_home/') ?>js/myscript.js"></script>
-<script src="<?= base_url('assets/vendor_template_home/') ?>js/jquery.min.js"></script>
+
 <script src="<?= base_url('assets/vendor_template_home/') ?>js/jquery-migrate-3.0.1.min.js"></script>
 <script src="<?= base_url('assets/vendor_template_home/') ?>js/popper.min.js"></script>
 <script src="<?= base_url('assets/vendor_template_home/') ?>js/bootstrap.min.js"></script>

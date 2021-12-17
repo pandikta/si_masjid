@@ -13,7 +13,7 @@ class Kas_model extends CI_model
     // private function _get_datatables_query()
     // {
     //     $this->db->select('*');
-    //     $this->db->from('kas_masjid');
+    //     $this->db->from('tb_kas');
     //     $this->db->where('jenis', 'masuk');
     //     $i = 0;
     //     foreach ($this->column_search as $item) { // loop column 
@@ -53,7 +53,7 @@ class Kas_model extends CI_model
     // }
     // function count_all()
     // {
-    //     $this->db->from('kas_masjid');
+    //     $this->db->from('tb_kas');
     //     return $this->db->count_all_results();
     // }
     // // end datatables
@@ -62,42 +62,42 @@ class Kas_model extends CI_model
     public function getAllPemasukan()
     {
         $this->db->order_by('tgl_km', 'DESC');
-        return $this->db->get_where('kas_masjid', ['jenis' => 'masuk'])->result_array();
+        return $this->db->get_where('tb_kas', ['jenis' => 'masuk'])->result_array();
     }
 
     public function getTotalPemasukan()
     {
-        $query = "SELECT SUM(masuk) as tot_masuk FROM kas_masjid";
+        $query = "SELECT SUM(masuk) as tot_masuk FROM tb_kas";
         return $this->db->query($query)->row_array();
     }
 
     public function getSaldo()
     {
-        $query = "SELECT SUM(masuk) - sum(keluar) as saldo FROM kas_masjid";
+        $query = "SELECT SUM(masuk) - sum(keluar) as saldo FROM tb_kas";
         return $this->db->query($query)->row_array();
     }
 
     public function countInfaq()
     {
-        $query = "SELECT count(*) as clazis FROM kas_masjid WHERE lazis = 'infaq'";
+        $query = "SELECT count(*) as clazis FROM tb_kas WHERE lazis = 'infaq'";
         return $this->db->query($query)->row_array();
     }
 
     public function countZakat()
     {
-        $query = "SELECT count(*) as clazis FROM kas_masjid WHERE lazis = 'zakat'";
+        $query = "SELECT count(*) as clazis FROM tb_kas WHERE lazis = 'zakat'";
         return $this->db->query($query)->row_array();
     }
 
     public function countShadaqah()
     {
-        $query = "SELECT count(*) as clazis FROM kas_masjid WHERE lazis = 'shadaqah'";
+        $query = "SELECT count(*) as clazis FROM tb_kas WHERE lazis = 'shadaqah'";
         return $this->db->query($query)->row_array();
     }
 
     public function countWakaf()
     {
-        $query = "SELECT count(*) as clazis FROM kas_masjid WHERE lazis = 'wakaf'";
+        $query = "SELECT count(*) as clazis FROM tb_kas WHERE lazis = 'wakaf'";
         return $this->db->query($query)->row_array();
     }
 
@@ -106,7 +106,7 @@ class Kas_model extends CI_model
         $tgl1 = $this->input->post('tgl1', true);
         $tgl2 = $this->input->post('tgl2', true);
 
-        $query = "SELECT * FROM kas_masjid WHERE jenis = 'masuk' AND tgl_km BETWEEN '$tgl1' AND '$tgl2' ORDER BY tgl_km DESC";
+        $query = "SELECT * FROM tb_kas WHERE jenis = 'masuk' AND tgl_km BETWEEN '$tgl1' AND '$tgl2' ORDER BY tgl_km DESC";
         return $this->db->query($query)->result_array();
     }
 
@@ -115,7 +115,7 @@ class Kas_model extends CI_model
         $tgl1 = $this->input->post('tgl1', true);
         $tgl2 = $this->input->post('tgl2', true);
 
-        $query = "SELECT * FROM kas_masjid WHERE jenis = 'keluar' AND tgl_km BETWEEN '$tgl1' AND '$tgl2' ORDER BY tgl_km DESC";
+        $query = "SELECT * FROM tb_kas WHERE jenis = 'keluar' AND tgl_km BETWEEN '$tgl1' AND '$tgl2' ORDER BY tgl_km DESC";
         return $this->db->query($query)->result_array();
     }
 
@@ -134,10 +134,12 @@ class Kas_model extends CI_model
             'masuk' => $masuk_hasil,
             'keluar' => '0',
             'jenis' => 'masuk',
-            'lazis' => $this->input->post('lazis', true)
+            'lazis' => $this->input->post('lazis', true),
+            'created_at' => date("Y-m-d H:i:s"),
+            'username' => $this->input->post('username', true)
         );
 
-        $this->db->insert('kas_masjid', $data);
+        $this->db->insert('tb_kas', $data);
     }
 
     public function editPemasukan($unique_code)
@@ -156,23 +158,23 @@ class Kas_model extends CI_model
             'lazis' => $this->input->post('lazis', true)
         ];
         $this->db->where('unique_code', $unique_code);
-        $this->db->update('kas_masjid', $data);
+        $this->db->update('tb_kas', $data);
     }
 
     public function deletePemasukan($unique_code)
     {
-        $this->db->delete('kas_masjid', ['unique_code' => $unique_code]);
+        $this->db->delete('tb_kas', ['unique_code' => $unique_code]);
     }
 
     public function getAllPengeluaran()
     {
         $this->db->order_by('tgl_km', 'DESC');
-        return $this->db->get_where('kas_masjid', ['jenis' => 'keluar'])->result_array();
+        return $this->db->get_where('tb_kas', ['jenis' => 'keluar'])->result_array();
     }
 
     public function getTotalPengeluaran()
     {
-        $query = "SELECT SUM(keluar) as tot_keluar FROM kas_masjid";
+        $query = "SELECT SUM(keluar) as tot_keluar FROM tb_kas";
         return $this->db->query($query)->row_array();
     }
 
@@ -189,10 +191,12 @@ class Kas_model extends CI_model
             'masuk' => '0',
             'keluar' => $keluar_hasil,
             'jenis' => 'keluar',
-            'lazis' => $this->input->post('lazis', true)
+            'lazis' => $this->input->post('lazis', true),
+            'created_at' => date("Y-m-d H:i:s"),
+            'username' => $this->input->post('username', true)
         ];
 
-        $this->db->insert('kas_masjid', $data);
+        $this->db->insert('tb_kas', $data);
     }
 
     public function editPengeluaran($unique_code)
@@ -211,97 +215,97 @@ class Kas_model extends CI_model
             'lazis' => $this->input->post('lazis', true)
         ];
         $this->db->where('unique_code', $unique_code);
-        $this->db->update('kas_masjid', $data);
+        $this->db->update('tb_kas', $data);
     }
 
     public function deletePengeluaran($unique_code)
     {
-        $this->db->delete('kas_masjid', ['unique_code' => $unique_code]);
+        $this->db->delete('tb_kas', ['unique_code' => $unique_code]);
     }
 
     public function getJumlahKas()
     {
-        $query = "SELECT (sum(masuk)-sum(keluar)) as tot_kas FROM kas_masjid";
+        $query = "SELECT (sum(masuk)-sum(keluar)) as tot_kas FROM tb_kas";
         return $this->db->query($query)->row_array();
     }
 
     public function getJumlahJan()
     {
         $tahun = date('Y');
-        $query = "SELECT (SUM(masuk)-SUM(keluar)) as total1 FROM kas_masjid WHERE MONTH(tgl_km)=1 AND YEAR(tgl_km) = '$tahun'";
+        $query = "SELECT (SUM(masuk)-SUM(keluar)) as total1 FROM tb_kas WHERE MONTH(tgl_km)=1 AND YEAR(tgl_km) = '$tahun'";
         return $this->db->query($query)->row_array();
     }
     public function getJumlahFeb()
     {
         $tahun = date('Y');
-        $query = "SELECT (SUM(masuk)-SUM(keluar)) as total2 FROM kas_masjid WHERE MONTH(tgl_km)=2 AND YEAR(tgl_km) = '$tahun'";
+        $query = "SELECT (SUM(masuk)-SUM(keluar)) as total2 FROM tb_kas WHERE MONTH(tgl_km)=2 AND YEAR(tgl_km) = '$tahun'";
         return $this->db->query($query)->row_array();
     }
     public function getJumlahMar()
     {
         $tahun = date('Y');
-        $query = "SELECT (SUM(masuk)-SUM(keluar)) as total3 FROM kas_masjid WHERE MONTH(tgl_km)=3 AND YEAR(tgl_km) = '$tahun'";
+        $query = "SELECT (SUM(masuk)-SUM(keluar)) as total3 FROM tb_kas WHERE MONTH(tgl_km)=3 AND YEAR(tgl_km) = '$tahun'";
         return $this->db->query($query)->row_array();
     }
     public function getJumlahApr()
     {
         $tahun = date('Y');
-        $query = "SELECT (SUM(masuk)-SUM(keluar)) as total4 FROM kas_masjid WHERE MONTH(tgl_km)=4 AND YEAR(tgl_km) = '$tahun'";
+        $query = "SELECT (SUM(masuk)-SUM(keluar)) as total4 FROM tb_kas WHERE MONTH(tgl_km)=4 AND YEAR(tgl_km) = '$tahun'";
         return $this->db->query($query)->row_array();
     }
     public function getJumlahMei()
     {
         $tahun = date('Y');
-        $query = "SELECT (SUM(masuk)-SUM(keluar)) as total5 FROM kas_masjid WHERE MONTH(tgl_km)=5 AND YEAR(tgl_km) = '$tahun'";
+        $query = "SELECT (SUM(masuk)-SUM(keluar)) as total5 FROM tb_kas WHERE MONTH(tgl_km)=5 AND YEAR(tgl_km) = '$tahun'";
         return $this->db->query($query)->row_array();
     }
     public function getJumlahJun()
     {
         $tahun = date('Y');
-        $query = "SELECT (SUM(masuk)-SUM(keluar)) as total6 FROM kas_masjid WHERE MONTH(tgl_km)=6 AND YEAR(tgl_km) = '$tahun'";
+        $query = "SELECT (SUM(masuk)-SUM(keluar)) as total6 FROM tb_kas WHERE MONTH(tgl_km)=6 AND YEAR(tgl_km) = '$tahun'";
         return $this->db->query($query)->row_array();
     }
     public function getJumlahJul()
     {
         $tahun = date('Y');
-        $query = "SELECT (SUM(masuk)-SUM(keluar)) as total7 FROM kas_masjid WHERE MONTH(tgl_km)=7 AND YEAR(tgl_km) = '$tahun'";
+        $query = "SELECT (SUM(masuk)-SUM(keluar)) as total7 FROM tb_kas WHERE MONTH(tgl_km)=7 AND YEAR(tgl_km) = '$tahun'";
         return $this->db->query($query)->row_array();
     }
     public function getJumlahAug()
     {
         $tahun = date('Y');
-        $query = "SELECT (SUM(masuk)-SUM(keluar)) as total8 FROM kas_masjid WHERE MONTH(tgl_km)=8 AND YEAR(tgl_km) = '$tahun'";
+        $query = "SELECT (SUM(masuk)-SUM(keluar)) as total8 FROM tb_kas WHERE MONTH(tgl_km)=8 AND YEAR(tgl_km) = '$tahun'";
         return $this->db->query($query)->row_array();
     }
     public function getJumlahSep()
     {
         $tahun = date('Y');
-        $query = "SELECT (SUM(masuk)-SUM(keluar)) as total9 FROM kas_masjid WHERE MONTH(tgl_km)=9 AND YEAR(tgl_km) = '$tahun'";
+        $query = "SELECT (SUM(masuk)-SUM(keluar)) as total9 FROM tb_kas WHERE MONTH(tgl_km)=9 AND YEAR(tgl_km) = '$tahun'";
         return $this->db->query($query)->row_array();
     }
     public function getJumlahOkt()
     {
         $tahun = date('Y');
-        $query = "SELECT (SUM(masuk)-SUM(keluar)) as total10 FROM kas_masjid WHERE MONTH(tgl_km)=10 AND YEAR(tgl_km) = '$tahun'";
+        $query = "SELECT (SUM(masuk)-SUM(keluar)) as total10 FROM tb_kas WHERE MONTH(tgl_km)=10 AND YEAR(tgl_km) = '$tahun'";
         return $this->db->query($query)->row_array();
     }
     public function getJumlahNov()
     {
         $tahun = date('Y');
-        $query = "SELECT (SUM(masuk)-SUM(keluar)) as total11 FROM kas_masjid WHERE MONTH(tgl_km)=11 AND YEAR(tgl_km) = '$tahun'";
+        $query = "SELECT (SUM(masuk)-SUM(keluar)) as total11 FROM tb_kas WHERE MONTH(tgl_km)=11 AND YEAR(tgl_km) = '$tahun'";
         return $this->db->query($query)->row_array();
     }
     public function getJumlahDes()
     {
         $tahun = date('Y');
-        $query = "SELECT (SUM(masuk)-SUM(keluar)) as total12 FROM kas_masjid WHERE MONTH(tgl_km)=12 AND YEAR(tgl_km) = '$tahun'";
+        $query = "SELECT (SUM(masuk)-SUM(keluar)) as total12 FROM tb_kas WHERE MONTH(tgl_km)=12 AND YEAR(tgl_km) = '$tahun'";
         return $this->db->query($query)->row_array();
     }
 
     public function getAllKas()
     {
 
-        $query = "SELECT * FROM kas_masjid ORDER BY tgl_km DESC";
+        $query = "SELECT * FROM tb_kas ORDER BY tgl_km DESC";
         return $this->db->query($query)->result_array();
     }
 
@@ -309,21 +313,21 @@ class Kas_model extends CI_model
     {
         $tgl1 = $this->input->post('tgl1');
         $tgl2 = $this->input->post('tgl2');
-        $query = "SELECT * FROM kas_masjid WHERE tgl_km BETWEEN '$tgl1' AND '$tgl2' ORDER BY tgl_km DESC";
+        $query = "SELECT * FROM tb_kas WHERE tgl_km BETWEEN '$tgl1' AND '$tgl2' ORDER BY tgl_km DESC";
         return $this->db->query($query)->result_array();
     }
     public function getTotalMasukPeriode()
     {
         $tgl1 = $this->input->post('tgl1');
         $tgl2 = $this->input->post('tgl2');
-        $query = "SELECT SUM(masuk) as tot_masuk FROM kas_masjid WHERE tgl_km BETWEEN '$tgl1' AND '$tgl2' ORDER BY tgl_km DESC";
+        $query = "SELECT SUM(masuk) as tot_masuk FROM tb_kas WHERE tgl_km BETWEEN '$tgl1' AND '$tgl2' ORDER BY tgl_km DESC";
         return $this->db->query($query)->row_array();
     }
     public function getTotalKeluarPeriode()
     {
         $tgl1 = $this->input->post('tgl1');
         $tgl2 = $this->input->post('tgl2');
-        $query = "SELECT SUM(keluar) as tot_keluar FROM kas_masjid WHERE tgl_km BETWEEN '$tgl1' AND '$tgl2' ORDER BY tgl_km DESC";
+        $query = "SELECT SUM(keluar) as tot_keluar FROM tb_kas WHERE tgl_km BETWEEN '$tgl1' AND '$tgl2' ORDER BY tgl_km DESC";
         return $this->db->query($query)->row_array();
     }
 
@@ -331,7 +335,7 @@ class Kas_model extends CI_model
     {
         $tgl1 = $this->input->post('tgl1');
         $tgl2 = $this->input->post('tgl2');
-        $query = "SELECT SUM(masuk) - SUM(keluar) as saldo_periode FROM kas_masjid WHERE tgl_km BETWEEN '$tgl1' AND '$tgl2' ORDER BY tgl_km DESC";
+        $query = "SELECT SUM(masuk) - SUM(keluar) as saldo_periode FROM tb_kas WHERE tgl_km BETWEEN '$tgl1' AND '$tgl2' ORDER BY tgl_km DESC";
         return $this->db->query($query)->row_array();
     }
 
@@ -339,7 +343,7 @@ class Kas_model extends CI_model
     {
         $bulan = date('m');
         $tahun = date('Y');
-        $query = "SELECT * FROM kas_masjid WHERE MONTH(tgl_km)= '$bulan' AND YEAR(tgl_km) = '$tahun'ORDER BY tgl_km DESC";
+        $query = "SELECT * FROM tb_kas WHERE MONTH(tgl_km)= '$bulan' AND YEAR(tgl_km) = '$tahun'ORDER BY tgl_km DESC";
         return $this->db->query($query)->result_array();
     }
 
@@ -347,7 +351,7 @@ class Kas_model extends CI_model
     {
         $bulan = date('m');
         $tahun = date('Y');
-        $query = "SELECT (SUM(masuk)-SUM(keluar)) as saldo FROM kas_masjid WHERE MONTH(tgl_km)= '$bulan' AND YEAR(tgl_km) = '$tahun'";
+        $query = "SELECT (SUM(masuk)-SUM(keluar)) as saldo FROM tb_kas WHERE MONTH(tgl_km)= '$bulan' AND YEAR(tgl_km) = '$tahun'";
         return $this->db->query($query)->row_array();
     }
 
@@ -355,14 +359,14 @@ class Kas_model extends CI_model
     {
         $bulan = date('m');
         $tahun = date('Y');
-        $query = "SELECT SUM(masuk) as tot_masuk FROM kas_masjid WHERE MONTH(tgl_km)= '$bulan' AND YEAR(tgl_km) = '$tahun'";
+        $query = "SELECT SUM(masuk) as tot_masuk FROM tb_kas WHERE MONTH(tgl_km)= '$bulan' AND YEAR(tgl_km) = '$tahun'";
         return $this->db->query($query)->row_array();
     }
     public function getSaldoKeluarPerBulan()
     {
         $bulan = date('m');
         $tahun = date('Y');
-        $query = "SELECT SUM(keluar) as tot_keluar FROM kas_masjid WHERE MONTH(tgl_km)= '$bulan' AND YEAR(tgl_km) = '$tahun'";
+        $query = "SELECT SUM(keluar) as tot_keluar FROM tb_kas WHERE MONTH(tgl_km)= '$bulan' AND YEAR(tgl_km) = '$tahun'";
         return $this->db->query($query)->row_array();
     }
 }

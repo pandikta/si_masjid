@@ -11,10 +11,7 @@
                 <li class="nav-item <?= activate_menu('gallery') ?>"><a href="<?= base_url('gallery') ?>" class="nav-link">Gallery</a></li>
                 <li class="nav-item <?= activate_menu('jumat') ?>"><a href="<?= base_url('jumat') ?>" class="nav-link">Jadwal Petugas jumat</a></li>
                 <li class="nav-item <?= activate_menu('dana') ?>"><a href="<?= base_url('dana') ?>" class="nav-link">Dana</a></li>
-                <li class="nav-item">
-                    <a href="blog.html" class="nav-link">
-                        Kegiatan</a>
-                </li>
+                <li class="nav-item <?= activate_menu('dkegiatan') ?>"><a href="<?= base_url('dkegiatan') ?>" class="nav-link">Kegiatan</a></li>
                 <li class="nav-item <?= activate_menu('saran') ?>"><a href="<?= base_url('saran') ?>" class="nav-link">Saran</a></li>
                 <li class="nav-item cta  <?= activate_menu('kurban') ?>"><a href="<?= base_url('kurban') ?>" class="nav-link">Hitung Qurban</a></li>
             </ul>

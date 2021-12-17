@@ -127,11 +127,11 @@
                     </a>
                     <div class="collapse" id="forms">
                         <ul class="nav nav-collapse">
-                            <!-- <li>
+                            <li>
                                 <a href="<?= base_url('#') ?>">
                                     <span class="sub-item">Data Warga</span>
                                 </a>
-                            </li> -->
+                            </li>
                             <li>
                                 <a href="<?= base_url('qurban') ?>">
                                     <span class="sub-item">Hitung Qurban</span>

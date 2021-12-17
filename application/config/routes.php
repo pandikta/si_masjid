@@ -83,6 +83,7 @@ $route['katasandi'] = 'admin/pengguna/ubah_katasandi';
 $route['tugasjumat'] = 'admin/kegiatan/petugas_jumat';
 $route['kotaksaran'] = 'admin/kotaksaran';
 
+
 $route['default_controller'] = 'home';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

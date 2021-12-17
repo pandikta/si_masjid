@@ -99,9 +99,13 @@
                                         <tr>
                                             <th>No</th>
                                             <th>Tanggal</th>
-                                            <th>Keterangan</th>
-                                            <th>Jumlah</th>
                                             <th>Jenis Lazis</th>
+                                            <th>Jumlah</th>
+                                            <th>Keterangan</th>
+                                            <?php if ($user['level'] == 'administrator') : ?>
+                                                <th>Pencatat</th>
+                                                <th>Dicatat pada</th>
+                                            <?php endif; ?>
                                             <th style="width: 10%">Action</th>
                                         </tr>
                                     </thead>
@@ -109,9 +113,13 @@
                                         <tr>
                                             <th>No</th>
                                             <th>Tanggal</th>
-                                            <th>Keterangan</th>
-                                            <th>Jumlah</th>
                                             <th>Jenis Lazis</th>
+                                            <th>Jumlah</th>
+                                            <th>Keterangan</th>
+                                            <?php if ($user['level'] == 'administrator') : ?>
+                                                <th>Pencatat</th>
+                                                <th>Dicatat pada</th>
+                                            <?php endif; ?>
                                             <th style="width: 10%">Action</th>
                                         </tr>
                                     </tfoot>
@@ -123,9 +131,13 @@
                                                 </td>
                                                 <?php $tgl = $tp['tgl_km'] ?>
                                                 <td><?= date_indo($tgl) ?></td>
-                                                <td><?= $tp['keterangan']; ?></td>
-                                                <td><?= "Rp " . rupiah($tp['keluar']); ?></td>
                                                 <td><?= $tp['lazis']; ?></td>
+                                                <td><?= "Rp " . rupiah($tp['keluar']); ?></td>
+                                                <td><?= $tp['keterangan']; ?></td>
+                                                <?php if ($user['level'] == 'administrator') : ?>
+                                                    <td><?= $tp['username'] ?></td>
+                                                    <td><?= $tp['created_at'] ?></td>
+                                                <?php endif; ?>
                                                 <td>
                                                     <div class="form-button-action">
                                                         <a href="" data-toggle="modal" data-target="#editpengeluaran<?= $tp['unique_code'] ?>" class="btn btn-link btn-primary btn-lg" data-original-title="Edit Data">
@@ -161,6 +173,7 @@
                     <div class="modal-body">
                         <form action="<?= base_url('admin/kas_masjid/tambah_pengeluaran') ?>" method="POST">
                             <input type="hidden" name="unique_code" value="<?= strtolower(random_string('alnum', 32)) ?>">
+                            <input type="hidden" name="username" value="<?= $user['username'] ?>">
                             <div class="form-group">
                                 <div class="input-icon">
                                     <span class="input-icon-addon">

@@ -1,77 +1,281 @@
-<!DOCTYPE html>
-<html>
+<section class="hero-wrap hero-wrap-2" style="background-image: url('assets/img/about.jpg');"
+    data-stellar-background-ratio="0.5">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row no-gutters slider-text align-items-end justify-content-start">
+            <div class="col-md-9 ftco-animate pb-5">
+                <p class="breadcrumbs"><span class="mr-2"><a href="<?= base_url('home') ?>">Home <i
+                                class="fa fa-chevron-right"></i></a></span> <span>Qurban <i
+                            class="fa fa-chevron-right"></i></span></p>
+                <h1 class="mb-3 bread">Hitung Paket Qurban</h1>
+            </div>
+        </div>
+    </div>
+</section>
 
-<head>
-    <title>Membuat Format Rupiah Dengan Javascript - www.malasngoding.com</title>
-</head>
+<section class="ftco-section contact-section ftco-no-pb" id="contact-section">
 
-<body>
 
-    <style type="text/css">
-        body {
-            font-family: sans-serif;
-        }
 
-        .kotak {
-            width: 350px;
-            margin: auto;
-            margin-top: 15px;
-            padding: 10px;
-        }
+    <div style="text-align: center;" class="container">
+        <div class="row">
 
-        p {
-            margin-bottom: 20px;
-            color: #0004ff;
-        }
+            <div class="col-md-12 col-md-offset-1">
+                <form action="" method="post" class="f1">
+                    <!-- <h3>www.ayongoding.com</h3>
+                    <p>Membuat Form Wizard Bootstrap</p> -->
+                    <div class="f1-steps">
+                        <div class="f1-progress">
+                            <div class="f1-progress-line" data-now-value="20" data-number-of-steps="2"
+                                style="width: 20%;"></div>
+                        </div>
+                        <div class="f1-step active">
+                            <div class="f1-step-icon"><i class="fa fa-user"></i></div>
+                            <p>Biodata</p>
+                        </div>
+                        <div class="f1-step">
+                            <div class="f1-step-icon"><i class="fa fa-home"></i></div>
+                            <p>Alamat</p>
+                        </div>
+                        <div class="f1-step">
+                            <div class="f1-step-icon"><i class="fa fa-key"></i></div>
+                            <p>Akun</p>
+                        </div>
+                    </div>
+                    <!-- step 1 -->
+                    <fieldset>
+                        <div class="f1-buttons">
+                            <button type="button" class="btn btn-primary btn-submit" name="add" id="add"><i
+                                    class="fa fa-save"></i>
+                                Tambah</button>
+                        </div>
+                        <table id="dynamic_field">
+                            <tr id="row">
+                                <td class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Berat Karkas</label>
+                                        <input type="number" name="harga" id="harga" placeholder="Berat Karkas"
+                                            class="form-control">
+                                    </div>
+                                </td>
+                                <td class="col-md-3">
+                                    <div class="form-group">
+                                        <label>Berat Lulang</label>
+                                        <input type="number" name="iyuran" id="iyuran" placeholder="Berat Lulang"
+                                            class="form-control">
+                                    </div>
+                                </td>
+                                <td class="col-md-3">
+                                    <div class="form-group">
+                                        <label>Rata-rata Harga Lulang</label>
+                                        <input type="number" name="iyuran" id="iyuran" placeholder="Berat Lulang"
+                                            class="form-control">
+                                    </div>
+                                </td>
+                            </tr>
+                            <hr>
 
-        input {
-            text-align: right;
-            width: 100%;
-            margin-bottom: 20px;
-            margin-top: 10px;
-            padding: 7px 10px;
-            font-size: 18px;
-        }
-    </style>
-
-    <center>
-        <h1>Membuat Format Rupiah Dengan Javascript <br /> www.malasngoding.com</h1>
-    </center>
-
-    <div class="kotak">
-        <p>Ketik jumlah nominal pada form di bawah ini.</p>
-        <span>Nominal Rupiah. :</span>
-        <input type="text" id="rupiah" />
+                        </table>
+                        <div class="f1-buttons">
+                            <button type="button" class="btn btn-danger btn-previous"><i class="fa fa-arrow-left"></i>
+                                Sebelumnya</button>
+                            <button type="button" class="btn btn-primary btn-next">Selanjutnya <i
+                                    class="fa fa-arrow-right"></i></button>
+                        </div>
+                    </fieldset>
+                    <!-- step 2 -->
+                    <fieldset>
+                        <h4>Alamat Lengkap</h4>
+                        <div class="form-group">
+                            <label>Tempat Lahir</label>
+                            <input type="text" name="tempat_lahir" placeholder="Tempat Lahir" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label>Alamat Rumah</label>
+                            <input type="text" name="alamat_rumah" placeholder="Alamat Rumah" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label>Alamat Kantor</label>
+                            <textarea name="alamat_kantor" placeholder="Alamat Kantor" class="form-control"></textarea>
+                        </div>
+                        <div class="f1-buttons">
+                            <button type="button" class="btn btn-danger btn-previous"><i class="fa fa-arrow-left"></i>
+                                Sebelumnya</button>
+                            <button type="button" class="btn btn-primary btn-next">Selanjutnya <i
+                                    class="fa fa-arrow-right"></i></button>
+                        </div>
+                    </fieldset>
+                    <!-- step 3 -->
+                    <fieldset>
+                        <h4>Buat Akun</h4>
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="text" name="email" placeholder="Email" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label>Password</label>
+                            <input type="password" name="password" placeholder="Password" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label>Ulangi password</label>
+                            <input type="password" name="ulangi_password" placeholder="Ulangi password"
+                                class="form-control">
+                        </div>
+                        <div class="f1-buttons">
+                            <button type="button" class="btn btn-danger btn-previous"><i class="fa fa-arrow-left"></i>
+                                Sebelumnya</button>
+                            <button type="button" class="btn btn-primary btn-next">Selanjutnya <i
+                                    class="fa fa-arrow-right"></i></button>
+                        </div>
+                    </fieldset>
+                    <!-- step 4 -->
+                </form>
+            </div>
+        </div>
     </div>
 
+</section>
 
-    <script type="text/javascript">
-
-        var rupiah = document.getElementById('rupiah');
-        rupiah.addEventListener('keyup', function (e) {
-            // tambahkan 'Rp.' pada saat form di ketik
-            // gunakan fungsi formatRupiah() untuk mengubah angka yang di ketik menjadi format angka
-            rupiah.value = formatRupiah(this.value, 'Rp. ');
+<script>
+    $(document).ready(function () {
+        var i = 1;
+        $('#add').click(function () {
+            i++;
+            $('#dynamic_field').append('<tr id="row' + i + '"><td class="col-md-6"> <div class = "form-group"><label> Harga </label> <input type = "text" onkeyup="hitungHarga()" name = "harga" id="harga' + i + '" placeholder = "Nama Awal" class = "form-control"></div></td> <td class = "col-md-3"><div class = "form-group"><label> Iyuran </label> <input type = "text" name = "iyuran"  id="iyuran' + i + '" onkeyup="hitungHarga()"  placeholder = "Nama Awal" class = "form-control"></div></td class="col-md-1"> <td><button type="button" name="remove" class=" btn btn-danger btn_remove   " id="' + i + '" value="X" >X</button> </td></tr>');
         });
 
-        /* Fungsi formatRupiah */
-        function formatRupiah(angka, prefix) {
-            var number_string = angka.replace(/[^,\d]/g, '').toString(),
-                split = number_string.split(','),
-                sisa = split[0].length % 3,
-                rupiah = split[0].substr(0, sisa),
-                ribuan = split[0].substr(sisa).match(/\d{3}/gi);
+        $(document).on('click', '.btn_remove', function () {
+            var button_id = $(this).attr("id");
+            $('#row' + button_id + '').remove();
 
-            // tambahkan titik jika yang di input sudah menjadi angka ribuan
-            if (ribuan) {
-                separator = sisa ? '.' : '';
-                rupiah += separator + ribuan.join('.');
-            }
+        });
 
-            rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
-            return prefix == undefined ? rupiah : (rupiah ? 'Rp. ' + rupiah : '');
+    });
+</script>
+<!-- <script>
+    $(document).ready(function() {
+        var i = 1;
+        $('#add2').click(function() {
+            i++;
+            $('#dynamic_field2').append(' <tr id="row2' + i + '"><td class="col-md-6"><input type="text" class="form-control" id="konversi" placeholder="Konversi dari Harga Daging ke Dalam Satuan Kg" onkeyup="hitungQurban();"></td><td class="col-md-3"><input type="text" class="form-control" id="konversi" placeholder="Konversi dari Harga Daging ke Dalam Satuan Kg" onkeyup="hitungQurban();"></td><td class="col-md-1"><button type="button" name="remove2" class=" btn btn-danger btn_remove2   " id="' + i + '" value="X" >X</button></td></tr>');
+        });
+
+        $(document).on('click', '.btn_remove2', function() {
+            var button_id = $(this).attr("id");
+            $('#row2' + button_id + '').remove();
+
+        });
+
+    });
+</script> -->
+
+<script>
+    function hitungHarga() {
+        var harga = document.getElementById('harga').value;
+        var harga2 = document.getElementById('harga2').value;
+        var totalIyuran = harga / 7;
+        var totalIyuran2 = harga2 / 7;
+        if (!isNaN(totalIyuran) || !isNaN(totalIyuran2)) {
+            document.getElementById('iyuran').value = totalIyuran;
+            document.getElementById('iyuran2').value = totalIyuran2;
         }
-    </script>
-</body>
+    }
+</script>
 
-</html>
+
+<!-- <script>
+    function hitungQurban() {
+
+        var totalPenerima = document.getElementById('totalPenerima').value;
+        var hargaSapi = document.getElementById('hargaSapi').value;
+        var jumlahSapi = document.getElementById('jumlahSapi').value;
+
+        var hargaKambing = document.getElementById('hargaKambing').value;
+        var totalKambing = document.getElementById('totalKambing').value;
+
+        var totalHargaSapi = parseFloat(hargaSapi.replace(/[^0-9]/g, '')) * parseFloat(jumlahSapi);
+        var totalHargaKambing = parseFloat(hargaKambing.replace(/[^0-9]/g, '')) * parseFloat(totalKambing);
+
+        var totalRupiah = parseFloat(totalHargaSapi) + parseFloat(totalHargaKambing);
+        var hakSohibul = 1 / 3 * parseFloat(totalRupiah);
+        var sisaRupiah = parseFloat(totalRupiah) - parseFloat(hakSohibul);
+
+        var totalRupiahSetelahDiambilSohibul = parseFloat(sisaRupiah) / parseFloat(totalPenerima);
+        var asumsiHarga = document.getElementById('asumsiHarga').value;
+
+        var konversi = parseFloat(totalRupiahSetelahDiambilSohibul) / parseFloat(asumsiHarga.replace(/[^0-9]/g, ''));
+
+        if (!isNaN(totalHargaSapi) || !isNaN(totalHargaKambing) || !isNaN(totalRupiah) || !isNaN(hakSohibul) || !isNaN(sisaRupiah) || !isNaN(totalRupiahSetelahDiambilSohibul) || !isNaN(konversi)) {
+            document.getElementById('totalHargaSapi').value = convertToRupiah(totalHargaSapi);
+            document.getElementById('totalHargaKambing').value = convertToRupiah(totalHargaKambing);
+            document.getElementById('totalRupiah').value = convertToRupiah(totalRupiah);
+            document.getElementById('hakSohibul').value = convertToRupiah(parseInt(hakSohibul));
+            document.getElementById('sisaRupiah').value = convertToRupiah(parseInt(sisaRupiah));
+            document.getElementById('totalRupiahSetelahDiambilSohibul').value = convertToRupiah(parseInt(totalRupiahSetelahDiambilSohibul));
+            document.getElementById('konversi').value = convertToKg(konversi.toFixed(2));
+            document.getElementById('hasil').value = convertToKg(konversi.toFixed(2));
+        }
+
+    }
+</script> -->
+<script type="text/javascript">
+    // var hargaSapi = document.getElementById('hargaSapi');
+    // hargaSapi.addEventListener('keyup', function(e) {
+    //     // tambahkan 'Rp.' pada saat form di ketik
+    //     // gunakan fungsi formatRupiah() untuk mengubah angka yang di ketik menjadi format angka
+    //     hargaSapi.value = formatRupiah(this.value, 'Rp. ');
+    // });
+
+    // var totalHargaSapi = document.getElementById('totalHargaSapi');
+    // totalHargaSapi.addEventListener('submit', function(e) {
+    //     // tambahkan 'Rp.' pada saat form di ketik
+    //     // gunakan fungsi formatRupiah() untuk mengubah angka yang di ketik menjadi format angka
+    //     totalHargaSapi.value = formatRupiah(this.value, 'Rp. ');
+    // });
+
+    // var hargaKambing = document.getElementById('hargaKambing');
+    // hargaKambing.addEventListener('keyup', function(e) {
+    //     // tambahkan 'Rp.' pada saat form di ketik
+    //     // gunakan fungsi formatRupiah() untuk mengubah angka yang di ketik menjadi format angka
+    //     hargaKambing.value = formatRupiah(this.value, 'Rp. ');
+    // });
+
+    // var asumsiHarga = document.getElementById('asumsiHarga');
+    // asumsiHarga.addEventListener('keyup', function(e) {
+    //     // tambahkan 'Rp.' pada saat form di ketik
+    //     // gunakan fungsi formatRupiah() untuk mengubah angka yang di ketik menjadi format angka
+    //     asumsiHarga.value = formatRupiah(this.value, 'Rp. ');
+    // });
+
+    /* Fungsi formatRupiah */
+    // function formatRupiah(angka, prefix) {
+    //     var number_string = angka.replace(/[^,\d]/g, '').toString(),
+    //         split = number_string.split(','),
+    //         sisa = split[0].length % 3,
+    //         rupiah = split[0].substr(0, sisa),
+    //         ribuan = split[0].substr(sisa).match(/\d{3}/gi);
+    //     // tambahkan titik jika yang di input sudah menjadi angka ribuan
+    //     if (ribuan) {
+    //         separator = sisa ? '.' : '';
+    //         rupiah += separator + ribuan.join('.');
+    //     }
+
+    //     rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
+    //     return prefix == undefined ? rupiah : (rupiah ? 'Rp. ' + rupiah : '');
+    // }
+
+    // function convertToRupiah(angka) {
+    //     var rupiah = '';
+    //     var angkarev = angka.toString().split('').reverse().join('');
+    //     for (var i = 0; i < angkarev.length; i++)
+    //         if (i % 3 == 0) rupiah += angkarev.substr(i, 3) + '.';
+    //     return 'Rp. ' + rupiah.split('', rupiah.length - 1).reverse().join('');
+    // }
+
+    // function convertToKg(angka) {
+    //     // var kg = '';
+    //     var angkarev = angka.toString();
+
+    //     return angkarev + ' Kg';
+    // }
+</script>

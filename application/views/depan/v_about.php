@@ -27,40 +27,6 @@
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus ad iure nulla officia, vero labore culpa voluptatem totam similique et eaque voluptas, quos eligendi placeat omnis dolore corrupti illum molestias consequuntur sit ipsam quisquam beatae molestiae. Dolorum obcaecati ea quo nesciunt nam excepturi accusamus ipsam enim aut neque! Suscipit, dolor?</p>
                     </div>
                 </div>
-                <!-- <div class="row">
-                    <div class="col-md-6 d-flex justify-content-center counter-wrap ftco-animate">
-                        <div class="block-18">
-                            <div class="text">
-                                <strong class="number" data-number="50">0</strong>
-                                <span>Years of Experienced</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 d-flex justify-content-center counter-wrap ftco-animate">
-                        <div class="block-18">
-                            <div class="text">
-                                <strong class="number" data-number="4500">0</strong>
-                                <span>Customers Served</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 d-flex justify-content-center counter-wrap ftco-animate">
-                        <div class="block-18">
-                            <div class="text">
-                                <strong class="number" data-number="300">0</strong>
-                                <span>Number of Equipment</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 d-flex justify-content-center counter-wrap ftco-animate">
-                        <div class="block-18">
-                            <div class="text">
-                                <strong class="number" data-number="300">0</strong>
-                                <span>Number of Staffs</span>
-                            </div>
-                        </div>
-                    </div>
-                </div> -->
             </div>
         </div>
     </div>
